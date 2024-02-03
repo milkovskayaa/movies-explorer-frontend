@@ -1,11 +1,17 @@
-
+import React from 'react';
+// import { Route, Routes, Navigate, useNavigate } from 'react-router-dom';
+import Header from "../Header/Header";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
+  const [loggedIn, setLoggedIn] = React.useState(false);
 
-      </header>
+  const handleLogin = () => {
+    setLoggedIn(true);
+  };
+
+  return (
+    <div className='root'>
+      <Header loggedIn={loggedIn} />
     </div>
   );
 }
