@@ -11,12 +11,12 @@
   margin: 0;
   padding: 0;
   list-style-type: none;
+  gap: 40px;
 }
 
 .navtab__link {
   text-decoration: none;
   margin-top: 24px;
-  margin-right: 40px;
   border-bottom: 1px solid #fff;
 }
 
