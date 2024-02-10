@@ -1,0 +1,36 @@
+.page-not-found {
+  max-width: 1280px;
+  width: 100%;
+  background-color: #202020;
+  padding-top: 246px;
+  padding-bottom: 60px;
+}
+
+.page-not-found__error {
+  font-weight: 400;
+  font-size: 140px;
+  line-height: 1.2;
+  color: #fff;
+  text-align: center;
+  margin: 0;
+}
+
+.page-not-found__text {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.2;
+  color: #fff;
+  text-align: center;
+  margin: 0;
+  padding-top: 5px;
+}
+
+.page-not-found__back {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.2;
+  color: #4285F4;
+  text-align: center;
+  padding: 184px 0 0 0;
+  margin: 0;
+}

@@ -1,21 +1,27 @@
 import React from 'react';
-// import { Route, Routes, Navigate, useNavigate } from 'react-router-dom';
-import Header from "../Header/Header";
+import { Route, Routes } from 'react-router-dom';
 import Main from '../Main/Main';
-import Footer from '../Footer/Footer';
+import PageNotFound from '../PageNotFound/PageNotFound';
 
 function App() {
-  const [loggedIn, setLoggedIn] = React.useState(false);
+  // const [loggedIn, setLoggedIn] = React.useState(false);
 
-  const handleLogin = () => {
-    setLoggedIn(true);
-  };
+  // const handleLogin = () => {
+  //   setLoggedIn(true);
+  // };
 
   return (
     <div className='root'>
-      <Header loggedIn={loggedIn} />
-      <Main />
-      <Footer />
+      <Routes>
+        <Route
+          path='/'
+          element={<Main />}
+        />
+        <Route
+          path='*'
+          element={<PageNotFound />}
+        />
+      </Routes>
     </div>
   );
 }
