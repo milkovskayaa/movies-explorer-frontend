@@ -1,0 +1,48 @@
+.footer {
+  padding: 79px 70px 0 70px;
+  background-color: #202020;
+}
+
+.footer__text {
+  max-width: 320px;
+  width: 100%;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 1.2;
+  color: #8B8B8B;
+  padding: 0;
+  margin: 0 410px;
+}
+
+.footer__year {
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 1.2;
+}
+
+.footer__links {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+}
+
+.footer__link {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 1.2;
+}
+
+.footer__info {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  border-top: 1px solid #424242;
+  padding: 20px 0;
+}
