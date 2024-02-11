@@ -24,6 +24,11 @@
   cursor: pointer;
 }
 
+.navigation__link_signup {
+  font-size: 12px;
+  margin: 0px 0px 0px 919px;
+}
+
 .navigation__account-button {
   display: flex;
   align-items: center;
@@ -32,6 +37,10 @@
   margin: 21px 70px 21px auto;
   background-color: #073042;
   box-shadow: 0px 3px 14px 0px rgba(0, 0, 0, 0.08);
+}
+
+.navigation__account-button:hover {
+  cursor: pointer;
 }
 
 .navigation__account-title {
@@ -51,4 +60,23 @@
   background-position: center;
   background-repeat: no-repeat;
   margin: 3px 3px 3px 0;
+}
+
+.navigation__signin-button {
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  padding: 0;
+  border: none;
+  border-radius: 3px;
+  width: 76px;
+  height: 32px;
+  color: #000;
+  background-color: #3DDC84;
+  margin: 21px 70px 21px 30px;
+}
+
+.navigation__signin-button:hover {
+  cursor: pointer;
+  opacity: 0.8;
 }

@@ -5,14 +5,15 @@ import { Link, useLocation } from "react-router-dom";
 import Navigation from '../Navigation/Navigation';
 
 
-function Header() {
+function Header({loggedIn}) {
+
   const location = useLocation();
   return(
     <header className={`header ${location.pathname === '/' ? '' : 'header_logged'}`}>
       <Link to='/'>
          <img src={headerLogo} alt='Логотип' className='header__logo' />
       </Link>
-      <Navigation />
+      <Navigation loggedIn={loggedIn} />
     </header>
   )
 }

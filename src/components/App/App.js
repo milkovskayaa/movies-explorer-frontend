@@ -5,18 +5,16 @@ import Main from '../Main/Main';
 import PageNotFound from '../PageNotFound/PageNotFound';
 
 function App() {
-  // const [loggedIn, setLoggedIn] = React.useState(false);
 
-  // const handleLogin = () => {
-  //   setLoggedIn(true);
-  // };
+  const isLogged = localStorage.getItem('jwt') ? true : false;
+  const [loggedIn, setLoggedIn] = React.useState(isLogged);
 
   return (
     <div className='root'>
       <Routes>
         <Route
           path='/'
-          element={<Main />}
+          element={<Main loggedIn={loggedIn} />}
         />
         <Route
           path='*'
