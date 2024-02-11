@@ -1,4 +1,5 @@
 import React from 'react';
+import './AboutMe.css';
 import studentPhoto from '../../images/student-photo.png';
 
 function AboutMe() {
