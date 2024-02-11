@@ -1,11 +1,15 @@
 .promo {
-  max-width: 1280px;
-  width: 100%;
-  height: 524px;
   background-color: #073042;
   background-image: url(../../images/landing-logo.svg);
   background-position: center;
   background-repeat: no-repeat;
+}
+
+.promo__container {
+  max-width: 1280px;
+  width: 100%;
+  height: 524px;
+  margin: 0 auto;
 }
 
 .promo__title {

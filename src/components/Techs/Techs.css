@@ -2,6 +2,12 @@
   background-color: #272727;
 }
 
+.techs__container {
+  max-width: 1140px;
+  width: 100%;
+  margin: 0 auto;
+}
+
 .techs__info {
   border-top: 1px solid #dadada;
 }
@@ -26,6 +32,7 @@
   padding: 26px 320px 100px;
   max-width: 500px;
   width: 100%;
+  margin: 0 auto;
 }
 
 .techs__info-list {

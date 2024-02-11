@@ -1,7 +1,11 @@
 .about-me {
-  max-width: 1280px;
-  width: 100%;
   background-color: #202020;
+}
+
+.about-me__container {
+  max-width: 1140px;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .about-me__info {

@@ -1,8 +1,12 @@
 .navtab {
+  background-color: #272727;
+}
+
+.navtab__container {
   max-width: 1280px;
   width: 100%;
-  background-color: #272727;
   height: 66px;
+  margin: 0 auto;
 }
 
 .navtab__list {
