@@ -4,6 +4,8 @@ import './App.css';
 import Main from '../Main/Main';
 import PageNotFound from '../PageNotFound/PageNotFound';
 import Register from '../Register/Register';
+import Login from '../Login/Login';
+import Movies from '../Movies/Movies';
 
 function App() {
 
@@ -20,6 +22,14 @@ function App() {
         <Route
           path='/signup'
           element={<Register />}
+        />
+        <Route
+          path='/signin'
+          element={<Login />}
+        />
+        <Route 
+          path='/movies'
+          element={<Movies loggedIn={true} />}
         />
         <Route
           path='*'

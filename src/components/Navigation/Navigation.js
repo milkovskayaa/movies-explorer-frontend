@@ -1,8 +1,9 @@
 import React from 'react';
 import './Navigation.css';
-// import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 function Navigation({loggedIn}) {
+  const location = useLocation();
 
   return(
     <section className='navigation'>
@@ -19,9 +20,9 @@ function Navigation({loggedIn}) {
       </ul>
       {loggedIn ? (
         <>
-          <div type='button' className='navigation__account-button'>
+          <div type='button' className={`navigation__account-button ${location.pathname === '/' ? '' : 'navigation__account-button_dark'}` }>
             <p className='navigation__account-title'>Аккаунт</p>
-            <div className='navigation__account-icon'></div>
+            <div className={`navigation__account-icon ${location.pathname === '/' ? '' : 'navigation__account-icon_dark'}`}></div>
           </div>
         </>
       ) : (

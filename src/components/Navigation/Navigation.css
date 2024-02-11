@@ -6,8 +6,7 @@
 
 .navigation__list {
   display: flex;
-  margin: 28px 0;
-  padding-left: 45px;
+  margin: 28px 0 28px 45px;
   gap: 16px;
   padding: 0;
 }
@@ -40,6 +39,10 @@
   box-shadow: 0px 3px 14px 0px rgba(0, 0, 0, 0.08);
 }
 
+.navigation__account-button_dark {
+  background-color: #202020;
+}
+
 .navigation__account-button:hover {
   cursor: pointer;
 }
@@ -61,6 +64,10 @@
   background-position: center;
   background-repeat: no-repeat;
   margin: 3px 3px 3px 0;
+}
+
+.navigation__account-icon_dark {
+  background-color: #313131;
 }
 
 .navigation__signin-button {

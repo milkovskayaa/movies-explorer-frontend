@@ -10,10 +10,10 @@ function Footer() {
           <p className='footer__year'>&copy; 2024</p>
           <ul className='footer__links'>
             <li className='footer__links-item'>
-              <a href='https://practicum.yandex.ru/' className='footer__link'>Яндекс.Практикум</a>
+              <a href='https://practicum.yandex.ru/' target='blank' className='footer__link'>Яндекс.Практикум</a>
             </li>
             <li className='footer__links-item'>
-              <a href='https://github.com/' className='footer__link'>Github</a>
+              <a href='https://github.com/' target='blank' className='footer__link'>Github</a>
             </li>
           </ul>
         </div>
