@@ -9,48 +9,51 @@ function Register() {
       <div className='register__container'>
         <img src={logo} alt='логотип' className='register__logo' />
         <h1 className='register__title'>Добро пожаловать!</h1>
-        <form className='register__form'>
-          <div className='register__input-box'>
-            <label className='register__label'>Имя</label>
+        <form className='form form_type_register'>
+          <div className='form__input-box form__input-box_register'>
+            <label className='form__label form__label_register'>Имя</label>
             <input
               type='text'
-              className='register__input' 
+              className='form__input form__input_register' 
               name='username'
               placeholder='Виталий'
               minLength={2}
               maxLength={30}
               required
             />
+            <span className='form__error'>Что-то пошло не так...</span>
           </div>
-          <div className='register__input-box'>
-            <label className='register__label'>E-mail</label>
+          <div className='form__input-box form__input-box_register'>
+            <label className='form__label form__label_register'>E-mail</label>
             <input
               type='email'
-              className='register__input' 
+              className='form__input form__input_register' 
               name='email'
               placeholder='pochta@yandex.ru'
               required
             />
+            <span className='form__error'>Что-то пошло не так...</span>
           </div>
-          <div className='register__input-box'>
-            <label className='register__label'>Пароль</label>
+          <div className='form__input-box form__input-box_register'>
+            <label className='form__label form__label_register'>Пароль</label>
             <input
               type='password'
-              className='register__input'
+              className='form__input form__input_register'
               name='password'
               placeholder='Введите пароль'
             />
+            <span className='form__error'>Что-то пошло не так...</span>
           </div>
-          <button type='button' className='register__button'>
+          <button type='button' className='form__button form__button_register'>
             Зарегистрироваться
           </button>
+          <span className='form__subtitle form__subtitle_register'>
+            Уже зарегистрированы?{" "}
+            <Link to="/signin" className="form__link form__link_register">
+              Войти
+            </Link>
+          </span>
         </form>
-        <span className='register__subtitle'>
-          Уже зарегистрированы?{" "}
-          <Link to="/signin" className="register__link">
-            Войти
-          </Link>
-        </span>
       </div>
     </section>
   )
