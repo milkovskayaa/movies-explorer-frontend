@@ -6,9 +6,13 @@
 
 .navigation__list {
   display: flex;
-  margin: 28px 0 28px 45px;
+  margin: 28px 0;
   gap: 16px;
   padding: 0;
+}
+
+.navigation__list_logged {
+  margin-left: 45px;
 }
 
 .navigation__link {

@@ -1,13 +1,15 @@
 import React from 'react';
 import './Movies.css';
 import Header from '../Header/Header';
-import Preloader from '../Preloader/Preloader';
+import SearchForm from '../SearchForm/SearchForm';
+// import Preloader from '../Preloader/Preloader';
 
 function Movies({loggedIn}) {
   return(
     <>
       <Header loggedIn={loggedIn} />
-      <Preloader />
+      <SearchForm />
+      {/* <Preloader /> */}
     </>
 
   )

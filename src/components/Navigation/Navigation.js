@@ -7,7 +7,7 @@ function Navigation({loggedIn}) {
 
   return(
     <section className='navigation'>
-      <ul className='navigation__list'>
+      <ul className={`navigation__list ${location.pathname === '/' ? '' : 'navigation__list_logged'}`}>
         {loggedIn ? (
           <>
             <li className='navigation__link'>Фильмы</li>
