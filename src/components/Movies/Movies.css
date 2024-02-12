@@ -1,0 +1,24 @@
+.movies {
+  background-color: #202020;
+}
+
+.movies__button-more {
+  width: 1140px;
+  height: 36px;
+  padding: 0;
+  border: none;
+  border-radius: 6px;
+  background-color: #2F2F2F;
+  font-family: 'Inter', Arial, sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.2;
+  text-align: center;
+  color: #fff;
+  margin: 50px 70px 80px;
+}
+
+.movies__button-more {
+  cursor: pointer;
+  opacity: 0.8;
+}

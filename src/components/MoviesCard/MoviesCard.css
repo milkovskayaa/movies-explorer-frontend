@@ -1,0 +1,60 @@
+.card {
+  width: 364px;
+  height: 281px;
+  background-color: #222;
+  border-radius: 6px;
+  box-shadow: #000 8%;
+}
+
+.card__image {
+  width: 364px;
+  height: 203px;
+  object-fit: cover;
+  display: block;
+}
+
+.card__name {
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 1.2;
+  color: #fff;
+  margin: 0;
+}
+
+.card__duration {
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 1.2;
+  color: #8B8B8B;
+  margin: 0;
+  padding-left: 16px;
+  padding-bottom: 16px;
+}
+
+.card__like-button {
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  background-image: url(../../images/like-off.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 30px;
+  height: 30px;
+}
+
+.card__like-button:hover {
+  cursor: pointer;
+}
+
+.card__like-button_active {
+  background-image: url(../../images/like-on.svg);
+}
+
+.card__info {
+  display: flex;
+  padding: 9px 16px 10px;
+  align-items: center;
+  justify-content: space-between;
+}

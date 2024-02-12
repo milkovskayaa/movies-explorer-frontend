@@ -1,7 +1,6 @@
 .search {
   background-color: #202020;
-  padding: 60px 70px 69px 70px;
-  border-bottom: 1px solid #424242;
+  padding: 60px 70px 0 70px;
 }
 
 .form__input_search {
@@ -40,10 +39,12 @@
 
 .search__switch-shorts {
   padding-top: 41px;
+  padding-bottom: 70px;
   display: flex;
   gap: 12px;
   align-items: center;
   justify-content: center;
+  border-bottom: 1px solid #424242;
 }
 
 .search__switch-shorts__subtitle {
