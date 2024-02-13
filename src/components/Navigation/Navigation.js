@@ -25,12 +25,12 @@ function Navigation({loggedIn}) {
         }
       </ul>
       {loggedIn ? (
-        <>
+        <Link to='/profile' className='link'>
           <div type='button' className={`navigation__account-button ${location.pathname === '/' ? '' : 'navigation__account-button_dark'}` }>
             <p className='navigation__account-title'>Аккаунт</p>
             <div className={`navigation__account-icon ${location.pathname === '/' ? '' : 'navigation__account-icon_dark'}`}></div>
           </div>
-        </>
+        </Link>
       ) : (
         <Link to='signin' className='link'>
           <button type='button' className='navigation__signin-button'>

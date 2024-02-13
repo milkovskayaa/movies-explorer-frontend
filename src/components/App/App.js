@@ -7,6 +7,7 @@ import Register from '../Register/Register';
 import Login from '../Login/Login';
 import Movies from '../Movies/Movies';
 import SavedMovies from '../SavedMovies/SavedMovies';
+import Profile from '../Profile/Profile';
 
 function App() {
 
@@ -35,6 +36,10 @@ function App() {
         <Route
           path='/saved-movies'
           element={<SavedMovies loggedIn={true}/>}
+        />
+        <Route
+          path='/profile'
+          element={<Profile loggedIn={true} />}
         />
         <Route
           path='*'
