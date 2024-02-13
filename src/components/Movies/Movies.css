@@ -18,7 +18,7 @@
   margin: 50px 70px 80px;
 }
 
-.movies__button-more {
+.movies__button-more:hover {
   cursor: pointer;
   opacity: 0.8;
 }

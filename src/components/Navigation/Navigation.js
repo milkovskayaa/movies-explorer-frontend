@@ -1,6 +1,6 @@
 import React from 'react';
 import './Navigation.css';
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 
 function Navigation({loggedIn}) {
   const location = useLocation();
@@ -10,11 +10,17 @@ function Navigation({loggedIn}) {
       <ul className={`navigation__list ${location.pathname === '/' ? '' : 'navigation__list_logged'}`}>
         {loggedIn ? (
           <>
-            <li className='navigation__link'>Фильмы</li>
-            <li className='navigation__link'>Сохраненные фильмы</li>
+            <Link to='/movies' className='link'>
+              <li className='navigation__link'>Фильмы</li>
+            </Link>
+            <Link to='/saved-movies' className='link'>
+              <li className='navigation__link'>Сохраненные фильмы</li>
+            </Link>
           </>
         ) : (
-          <li className='navigation__link navigation__link_signup'>Регистрация</li>
+          <Link to='/signup' className='link'>
+            <li className='navigation__link navigation__link_signup'>Регистрация</li>
+          </Link>
         ) 
         }
       </ul>
@@ -26,9 +32,12 @@ function Navigation({loggedIn}) {
           </div>
         </>
       ) : (
-        <button type='button' className='navigation__signin-button'>
-          Войти
-        </button>
+        <Link to='signin' className='link'>
+          <button type='button' className='navigation__signin-button'>
+            Войти
+          </button>
+        </Link>
+        
       )}
       
     </section>

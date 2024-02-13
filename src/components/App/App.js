@@ -6,6 +6,7 @@ import PageNotFound from '../PageNotFound/PageNotFound';
 import Register from '../Register/Register';
 import Login from '../Login/Login';
 import Movies from '../Movies/Movies';
+import SavedMovies from '../SavedMovies/SavedMovies';
 
 function App() {
 
@@ -30,6 +31,10 @@ function App() {
         <Route 
           path='/movies'
           element={<Movies loggedIn={true} />}
+        />
+        <Route
+          path='/saved-movies'
+          element={<SavedMovies loggedIn={true}/>}
         />
         <Route
           path='*'
