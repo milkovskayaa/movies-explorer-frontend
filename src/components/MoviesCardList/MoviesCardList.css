@@ -5,3 +5,26 @@
   row-gap: 37px;
   column-gap: 24px;
 }
+
+@media screen and (max-width: 1249px) {
+  .movies__container {
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .movies__container {
+    padding: 70px 30px 30px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 715px) {
+  .movies__container {
+    padding: 40px 10px 26px;
+    gap: 14px;
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

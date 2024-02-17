@@ -7,11 +7,11 @@ function SearchForm() {
     <section className='search'>
       <form className='search__form'>
         <input 
-          type='text'
-          className='form__input form__input_search'
-          placeholder='Фильм'
-          name='movie'
-          required
+        type='text'
+        className='form__input form__input_search'
+        placeholder='Фильм'
+        name='movie'
+        required
         />
         <button className='search-form__button' type='submit' />
       </form>

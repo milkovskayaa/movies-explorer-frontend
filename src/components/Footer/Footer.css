@@ -57,6 +57,12 @@
   padding: 20px 0;
 }
 
+@media screen and (max-width: 768px) {
+  .footer__container {
+    padding: 79px 30px 20px;
+  }
+}
+
 @media screen and (max-width: 320px) {
   .footer__container {
     padding: 79px 10px 20px;

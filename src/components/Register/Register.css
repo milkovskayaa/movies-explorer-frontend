@@ -6,7 +6,9 @@
   max-width: 396px;
   width: 100%;
   margin: 0 auto;
-  padding: 70px 442px;
+  padding: 70px 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .register__logo {
@@ -108,4 +110,34 @@
   font-size: 10px;
   line-height: 1.2;
   color: #EE3465;
+}
+
+@media screen and (max-width: 768px) {
+  .register__container {
+    padding: 232px 0;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .register__container {
+    padding: 56px 0 30px;
+    max-width: 260px;
+    align-items: center;
+  }
+
+  .register__title {
+    padding-top: 50px;
+  }
+
+  .form {
+    padding-top: 80px;
+  }
+
+  .form__subtitle {
+    font-size: 12px;
+  }
+
+  .form__button {
+    font-size: 12px;
+  }
 }

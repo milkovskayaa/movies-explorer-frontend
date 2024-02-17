@@ -6,7 +6,10 @@
   max-width: 410px;
   width: 100%;
   margin: 0 auto;
-  padding: 70px 435px;
+  padding: 70px 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 .profile__title {
@@ -54,7 +57,6 @@
 }
 
 .profile-btn {
-  width: 410px;
   border: none;
   padding: 0;
   background-color: transparent;
@@ -74,4 +76,10 @@
   font-weight: 500;
   color: #EE3465;
   padding-top: 16px;
+}
+
+@media screen and (max-width: 500px) {
+  .profile__container {
+    max-width: 260px;
+  }
 }
