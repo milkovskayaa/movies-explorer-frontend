@@ -34,3 +34,19 @@
   line-height: 1.2;
   color: #fff;
 }
+
+@media screen and (max-width: 768px) {
+  .navtab__container {
+    max-width: 768px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .navtab__container {
+    max-width: 320px;
+  }
+
+  .navtab__list {
+    gap: 24px;
+  }
+}

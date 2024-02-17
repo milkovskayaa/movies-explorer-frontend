@@ -3,9 +3,20 @@
 }
 
 .project__container {
-  max-width: 1140px;
-  width: 100%;
   margin: 0 auto;
+}
+
+.landing-container {
+  padding: 110px 70px;
+}
+
+.landing-title {
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1.2;
+  color: #fff;
+  margin: 0;
+  padding-bottom: 23px;
 }
 
 .project__stages {
@@ -80,4 +91,78 @@
   margin: 0;
   padding-top: 14px;
   text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  .project__container {
+    max-width: 768px;
+  }
+
+  .landing-container {
+    padding: 90px 50px;
+  }
+
+  .project__stages {
+    width: 668px;
+    gap: 30px;
+  }
+
+  .project__timelines {
+    padding-top: 93px;
+  }
+
+  .project__timeline_backend {
+    width: 140px;
+  }
+
+  .project__timeline_frontend {
+    width: 528px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .project__container {
+    max-width: 320px;
+  }
+
+  .landing-container {
+    padding: 70px 18px;
+  }
+
+  .landing-title {
+    font-size: 18px;
+    padding-bottom: 28px;
+  }
+
+  .project__stages {
+    width: 284px;
+    flex-direction: column;
+    padding-top: 60px;
+    gap: 60px;
+  }
+
+  .project__stages-text {
+    padding-top: 16px;
+    font-size: 11px;
+  }
+
+  .project__stages-title {
+    font-size: 18px;
+  }
+
+  .project__timelines {
+    padding-top: 60px;
+  }
+
+  .project__timeline_backend {
+    width: 100px;
+  }
+
+  .project__timeline_frontend {
+    width: 184px;
+  }
+
+  .project__timelines-text {
+    font-size: 11px;
+  }
 }

@@ -24,3 +24,23 @@
 .header__link:hover {
   cursor: pointer;
 }
+
+@media screen and (max-width:768px) {
+  .header__container {
+    max-width: 768px;
+  }
+
+  .header__logo {
+    margin-left: 30px;
+  }
+}
+
+@media screen and (max-width:320px) {
+  .header__container {
+    max-width: 320px;
+  }
+
+  .header__logo {
+    margin-left: 14px;
+  }
+}

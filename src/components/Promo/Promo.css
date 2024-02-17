@@ -25,3 +25,27 @@
   width: 100%;
   height: 116px;
 }
+
+@media screen and (max-width: 768px) {
+  .promo__container {
+    max-width: 768px;
+    height: 784px;
+  }
+
+  .promo__title {
+    padding: 326px 19px 342px 19px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .promo__container {
+    max-width: 320px;
+    height: 570px;
+  }
+
+  .promo__title {
+    padding: 207px 10px 246px 10px;
+    font-size: 31px;
+    max-width: 300px;
+  }
+}

@@ -96,3 +96,27 @@
 .link {
   text-decoration: none;
 }
+
+@media screen and (max-width: 768px) {
+  .navigation__link_signup {
+    margin: 0 0 0 487px;
+  }
+
+  .navigation__signin-button {
+    margin: 21px 30px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .navigation__link_signup {
+    margin: 0 0 0 122px;
+    font-size: 10px;
+  }
+
+  .navigation__signin-button {
+    margin: 24px 14px;
+    width: 54px;
+    height: 26px;
+    font-size: 10px;
+  }
+}
