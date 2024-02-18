@@ -1,7 +1,10 @@
 .navigation {
   display: flex;
-  max-width: 1280px;
-  width: 100%;
+}
+
+.navigation_logged {
+  width: 100%; 
+  justify-content: space-between;
 }
 
 .navigation__list {
@@ -30,7 +33,6 @@
 
 .navigation__link_signup {
   font-size: 12px;
-  margin: 0px 0px 0px 919px;
 }
 
 .navigation__account-button {
@@ -38,7 +40,7 @@
   align-items: center;
   height: 32px;
   border-radius: 40px;
-  margin: 21px 70px 21px 746px;
+  margin: 21px 70px 21px auto;
   background-color: #073042;
   box-shadow: 0px 3px 14px 0px rgba(0, 0, 0, 0.08);
 }

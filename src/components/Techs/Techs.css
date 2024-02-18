@@ -82,7 +82,7 @@
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 510px) {
   .techs__info-title {
     font-size: 30px;
     padding-top: 60px;

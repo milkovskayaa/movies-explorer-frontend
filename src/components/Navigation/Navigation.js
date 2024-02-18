@@ -6,7 +6,7 @@ function Navigation({loggedIn}) {
   const location = useLocation();
 
   return(
-    <section className='navigation'>
+    <section className={`navigation ${location.pathname === '/' ? '' : 'navigation_logged'}`}>
       <ul className={`navigation__list ${location.pathname === '/' ? '' : 'navigation__list_logged'}`}>
         {loggedIn ? (
           <>
