@@ -6,9 +6,8 @@
   max-width: 410px;
   width: 100%;
   margin: 0 auto;
-  padding: 70px 0;
+  padding: 72px 0;
   display: flex;
-  align-items: center;
   flex-direction: column;
 }
 
@@ -19,7 +18,7 @@
   color: #fff;
   line-height: 1.2;
   text-align: center;
-  padding-bottom: 123px;
+  padding-bottom: 125px;
 }
 
 .profile__label {
@@ -78,8 +77,36 @@
   padding-top: 16px;
 }
 
+.profile__link {
+  display: block;
+  align-self: center;
+}
+
+@media screen and (max-width: 768px) {
+  .profile__container {
+    padding: 236px 0 269px;
+  }
+
+  .profile__title {
+    padding-bottom: 96px;
+  }
+
+  .profile__input-box_email {
+    padding-bottom: 210px;
+  }
+}
+
 @media screen and (max-width: 500px) {
   .profile__container {
     max-width: 260px;
+    padding: 70px 10px 40px;
+  }
+
+  .profile__title {
+    padding-bottom: 80px;
+  }
+
+  .profile__input-box_email {
+    padding-bottom: 379px;
   }
 }

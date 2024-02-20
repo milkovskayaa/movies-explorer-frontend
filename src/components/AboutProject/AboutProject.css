@@ -16,6 +16,7 @@
   line-height: 1.2;
   color: #fff;
   margin: 0;
+  letter-spacing: -0.88px;
   padding-bottom: 23px;
 }
 
@@ -32,6 +33,7 @@
   line-height: 1.2;
   color: #fff;
   margin: 0;
+  letter-spacing: -0.8px;
 }
 
 .project__stages-text {
@@ -118,6 +120,10 @@
   .project__timeline_frontend {
     width: 528px;
   }
+
+  .project__stages-text {
+    padding-top: 20px;
+  }
 }
 
 @media screen and (max-width: 767px) {
@@ -137,13 +143,13 @@
   .project__stages {
     width: 284px;
     flex-direction: column;
-    padding-top: 60px;
-    gap: 60px;
+    padding-top: 62px;
+    gap: 58px;
   }
 
   .project__stages-text {
-    padding-top: 16px;
     font-size: 11px;
+    padding-top: 17px;
   }
 
   .project__stages-title {
@@ -162,7 +168,12 @@
     width: 184px;
   }
 
+  .project__timeline-text {
+    font-size: 11px;
+  }
+
   .project__timelines-text {
     font-size: 11px;
+    padding-top: 12px;
   }
 }

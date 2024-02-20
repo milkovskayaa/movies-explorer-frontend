@@ -33,7 +33,7 @@ function Profile({loggedIn}) {
             />
           </div>
           <button type='button' className='profile-btn profile-btn_edit'>Редактировать</button>
-          <Link to='/' className='link'>
+          <Link to='/' className='link profile__link'>
             <button type='button' className='profile-btn profile-btn_exit'>Выйти из аккаунта</button>
           </Link>
         </div>

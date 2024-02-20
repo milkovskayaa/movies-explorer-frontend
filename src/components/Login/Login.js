@@ -7,7 +7,9 @@ function Login() {
   return(
     <section className='login'>
       <div className='login__container register__container'>
-        <img src={logo} alt='логотип' className='login__logo register__logo' />
+        <Link to='/' className='login__logo register__logo'>
+          <img src={logo} alt='логотип' className='login__link' />
+        </Link>
         <h1 className='login__title register__title'>Рады видеть!</h1>
         <form className='form form_type_login'>
           <div className='form__input-box form__input-box_login'>
@@ -28,19 +30,20 @@ function Login() {
               className='form__input form__input_login'
               name='password'
               placeholder='Введите пароль'
+              required
             />
             <span className='form__error'>Что-то пошло не так...</span>
           </div>
-          <button type='button' className='form__button form__button_login'>
-            Зарегистрироваться
-          </button>
-          <span className='form__subtitle form__subtitle_login'>
-            Еще не зарегистрированы?{" "}
-            <Link to="/signup" className="form__link form__link_login">
-              Регистрация
-            </Link>
-          </span>
         </form>
+        <button type='button' className='form__button form__button_login'>
+          Войти
+        </button>
+        <span className='form__subtitle form__subtitle_login'>
+          Еще не зарегистрированы?{" "}
+          <Link to="/signup" className="form__link form__link_login">
+            Регистрация
+          </Link>
+        </span>
       </div>
     </section>
   )

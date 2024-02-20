@@ -36,9 +36,14 @@
   margin: 0;
 }
 
+.page-not-found__back:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+
 @media screen and (max-width: 768px) {
   .page-not-found__container {
-    padding: 408px 184px 222px;
+    padding: 408px 0 222px;
   }
 }
 
@@ -53,6 +58,7 @@
 
   .page-not-found__text {
     font-size: 12px;
+    padding-top: 10px;
   }
 
   .page-not-found__back {

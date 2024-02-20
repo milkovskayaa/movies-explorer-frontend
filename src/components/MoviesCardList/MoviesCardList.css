@@ -1,5 +1,5 @@
 .movies__container {
-  padding: 70px 70px 50px 70px;
+  padding: 80px 70px 50px 70px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   row-gap: 37px;
@@ -16,14 +16,15 @@
 
 @media screen and (max-width: 768px) {
   .movies__container {
-    padding: 70px 30px 30px;
+    padding: 80px 30px 30px;
     grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
   }
 }
 
 @media screen and (max-width: 715px) {
   .movies__container {
-    padding: 40px 10px 26px;
+    padding: 50px 10px 26px;
     gap: 14px;
     grid-template-columns: repeat(1, 1fr);
   }

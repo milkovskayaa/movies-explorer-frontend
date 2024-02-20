@@ -10,14 +10,14 @@ function BurgerMenu({isOpen, onClose}) {
           <div className='burger-menu__container'>
             <button className='burger-menu__close' onClick={onClose} />
             <ul className='burger-menu__list'>
-              <Link to='/' className='link'>
-                <li className='burger-menu__link'>Главная</li>
+              <Link to='/' className='burger-menu__link link'>
+                <li className='burger-menu__item'>Главная</li>
               </Link>
-              <Link to='/movies' className='link'>
-                <li className='burger-menu__link'>Фильмы</li>
+              <Link to='/movies' className='burger-menu__link link'>
+                <li className='burger-menu__item'>Фильмы</li>
               </Link>
-              <Link to='/saved-movies' className='link'>
-                <li className='burger-menu__link'>Сохраненные фильмы</li>
+              <Link to='/saved-movies' className='burger-menu__link link'>
+                <li className='burger-menu__item'>Сохраненные фильмы</li>
               </Link>
             </ul>
             <Link to='/profile' className='link burger-menu__account-link'>
