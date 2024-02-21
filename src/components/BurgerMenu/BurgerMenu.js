@@ -1,8 +1,10 @@
 import React from 'react';
 import './BurgerMenu.css';
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 function BurgerMenu({isOpen, onClose}) {
+  const location = useLocation();
+
   return( 
     <>
       {isOpen ? (
@@ -11,13 +13,13 @@ function BurgerMenu({isOpen, onClose}) {
             <button className='burger-menu__close' onClick={onClose} />
             <ul className='burger-menu__list'>
               <Link to='/' className='burger-menu__link link'>
-                <li className='burger-menu__item'>Главная</li>
+                <li className={`burger-menu__item ${location.pathname === '/' ? 'burger-menu__item_active' : ''}`}>Главная</li>
               </Link>
               <Link to='/movies' className='burger-menu__link link'>
-                <li className='burger-menu__item'>Фильмы</li>
+                <li className={`burger-menu__item ${location.pathname === '/movies' ? 'burger-menu__item_active' : ''}`}>Фильмы</li>
               </Link>
               <Link to='/saved-movies' className='burger-menu__link link'>
-                <li className='burger-menu__item'>Сохраненные фильмы</li>
+                <li className={`burger-menu__item ${location.pathname === '/saved-movies' ? 'burger-menu__item_active' : ''}`}>Сохраненные фильмы</li>
               </Link>
             </ul>
             <Link to='/profile' className='link burger-menu__account-link'>

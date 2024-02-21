@@ -46,13 +46,17 @@
 .burger-menu__item {
   font-weight: 500;
   font-size: 18px;
-  line-height: 1.2;
+  line-height: 1.21;
   text-align: center;
   color: #fff;
 }
 
-.burger-menu__item:active {
+.burger-menu__item_active {
   border-bottom: 2px solid #fff;
+}
+
+.burger-menu__item:hover {
+  cursor: pointer;
   opacity: 0.7;
 }
 
@@ -68,7 +72,15 @@
 
 @media screen and (max-width: 320px) {
   .burger-menu__close {
-    margin: 13.44px 13.44px 99.44px auto;
+    margin: 18.44px 18.44px 105px auto;
+  }
+
+  .burger-menu__item_active {
+    padding-bottom: 6px;
+  }
+
+  .burger-menu__list {
+    gap: 21.5px;
   }
 
   .burger-menu__account-link {
