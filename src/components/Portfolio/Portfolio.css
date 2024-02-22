@@ -108,10 +108,11 @@
   .portfolio__item-link {
     font-size: 18px;
     max-width: 292px;
+    letter-spacing: -0.72px;
   }
 
   .portfolio__list {
-    padding: 45px 0 0 0;
+    padding: 42px 0 0 0;
   }
 
   .portfolio__item-button {

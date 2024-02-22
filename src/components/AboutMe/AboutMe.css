@@ -70,6 +70,7 @@
   .about-me__name {
     font-size: 40px;
     padding-top: 64px;
+    letter-spacing: -1.6px;
   }
 
   .about-me__job {
@@ -105,6 +106,7 @@
   .about-me__name {
     font-size: 30px;
     padding-top: 40px;
+    letter-spacing: -1.2px;
   }
 
   .about-me__job {
@@ -115,7 +117,8 @@
   .about-me__text {
     font-size: 11px;
     max-width: 292px;
-    padding: 20px 0 30px;
+    padding: 20px 0 38px;
+    line-height: 1.5;
   }
 
   .about-me__container {
