@@ -17,6 +17,11 @@
   display: block;
 }
 
+.register__logo:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
 .register__title {
   margin: 0;
   padding-top: 40px;
