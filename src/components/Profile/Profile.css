@@ -66,6 +66,17 @@
   text-align: center;
 }
 
+.profile-btn_edit_active {
+  width: 410px;
+  height: 45px;
+  border-radius: 3px;
+  background-color: #3456F3;
+}
+
+.profile-btn_exit_hide {
+  display: none;
+}
+
 .profile-btn:hover {
   cursor: pointer;
   opacity: 0.7;

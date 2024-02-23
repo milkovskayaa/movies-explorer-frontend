@@ -4,6 +4,14 @@ import Header from '../Header/Header';
 import { Link } from "react-router-dom";
 
 function Profile({loggedIn}) {
+  const [isEditButtonActive, setEditButtonActive] = React.useState(false);
+  const [editButtonValue, setEditButonValue] = React.useState('Редактировать');
+
+  const handleEdit = () => {
+    setEditButtonActive(true);    
+    setEditButonValue('Сохранить');
+  }
+
   return(
     <>
       <Header loggedIn={loggedIn} />
@@ -32,9 +40,18 @@ function Profile({loggedIn}) {
             required
             />
           </div>
-          <button type='button' className='profile-btn profile-btn_edit'>Редактировать</button>
+          <button
+            type='button'
+            className={`profile-btn profile-btn_edit ${isEditButtonActive ? 'profile-btn_edit_active' : ''}`}
+            onClick={handleEdit}>
+            {editButtonValue}
+          </button>
           <Link to='/' className='link profile__link'>
-            <button type='button' className='profile-btn profile-btn_exit'>Выйти из аккаунта</button>
+            <button
+              type='button'
+              className={`profile-btn profile-btn_exit ${isEditButtonActive ? 'profile-btn_exit_hide' : ''}`}>
+              Выйти из аккаунта
+            </button>
           </Link>
         </div>
       </section>
