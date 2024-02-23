@@ -142,6 +142,7 @@
 @media screen and (max-width: 759px) {
   .navigation__link_signup {
     font-size: 10px;
+    line-height: 1.6;
   }
 
   .navigation__signin-button {

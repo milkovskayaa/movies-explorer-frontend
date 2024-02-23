@@ -61,6 +61,10 @@
   .footer__container {
     padding: 79px 30px 20px;
   }
+
+  .footer__info {
+    padding: 18px 0 0 0;
+  }
 }
 
 @media screen and (max-width: 320px) {
@@ -76,8 +80,8 @@
   .footer__info {
     flex-direction: column-reverse;
     align-items: center;
-    padding: 28px 0 0 0;
-    margin-top: 22px;
+    padding: 27px 0 0 0;
+    margin-top: 21px;
   }
 
   .footer__year {

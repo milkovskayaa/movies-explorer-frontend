@@ -122,7 +122,9 @@
   }
 
   .project__stages-text {
-    padding-top: 20px;
+    padding-top: 22px;
+    font-size: 12px;
+    line-height: 1.5;
   }
 }
 
@@ -144,20 +146,23 @@
     width: 284px;
     flex-direction: column;
     padding-top: 62px;
-    gap: 58px;
+    gap: 56px;
   }
 
   .project__stages-text {
     font-size: 11px;
-    padding-top: 17px;
+    padding-top: 16px;
+    line-height: 1.5;
   }
 
   .project__stages-title {
     font-size: 18px;
+    letter-spacing: -0.72px;
+
   }
 
   .project__timelines {
-    padding-top: 60px;
+    padding-top: 58px;
   }
 
   .project__timeline_backend {
@@ -174,6 +179,6 @@
 
   .project__timelines-text {
     font-size: 11px;
-    padding-top: 12px;
+    padding-top: 10px;
   }
 }

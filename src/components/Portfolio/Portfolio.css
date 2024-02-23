@@ -75,6 +75,11 @@
   .portfolio__item-link {
     font-size: 28px;
     max-width: 668px;
+    line-height: 1.7;
+  }
+
+  .portfolio__list {
+    padding: 49px 0 0 0;
   }
 
   .portfolio__item-button {
@@ -93,7 +98,7 @@
 
 @media screen and (max-width: 380px) {
   .portfolio__item {
-    padding-bottom: 20px;
+    padding-bottom: 18px;
     padding-top: 18px;
   }
 

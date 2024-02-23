@@ -70,11 +70,16 @@
     padding: 90px 50px;
   }
 
+  .techs__title {
+    padding-bottom: 24px;
+  }
+
   .techs__info-subtitle {
     font-size: 12px;
-    padding-top: 22px;
+    padding-top: 20px;
     padding-bottom: 83px;
     letter-spacing: -0.48px;
+    line-height: 1.5;
   }
 
   .techs__info-title {
@@ -99,7 +104,7 @@
 
   .techs__info-title {
     font-size: 30px;
-    padding-top: 60px;
+    padding-top: 62px;
     letter-spacing: -1.2px;
   }
 
