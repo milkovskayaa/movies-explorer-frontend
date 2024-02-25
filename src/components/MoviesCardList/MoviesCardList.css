@@ -22,7 +22,7 @@
   }
 }
 
-@media screen and (max-width: 715px) {
+@media screen and (max-width: 730px) {
   .movies__container {
     padding: 50px 10px 26px;
     gap: 14px;

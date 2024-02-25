@@ -26,6 +26,12 @@
   letter-spacing: -2px;
 }
 
+@media screen and (min-width: 1290px) {
+  .promo {
+    background-position: center;
+  }
+}
+
 @media screen and (max-width: 1249px) {
   .promo__title {
     max-width: 768px;
