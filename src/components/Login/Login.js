@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 function Login() {
   return(
-    <section className='login'>
+    <section className='login register'>
       <div className='login__container register__container'>
         <Link to='/' className='login__logo register__logo'>
           <img src={logo} alt='логотип' className='login__link' />
@@ -34,16 +34,16 @@ function Login() {
             />
             <span className='form__error'>Что-то пошло не так...</span>
           </div>
+          <button type='button' className='form__button form__button_login'>
+            Войти
+          </button>
+          <span className='form__subtitle form__subtitle_login'>
+            Еще не зарегистрированы?{" "}
+            <Link to="/signup" className="form__link form__link_login">
+              Регистрация
+            </Link>
+          </span>
         </form>
-        <button type='button' className='form__button form__button_login'>
-          Войти
-        </button>
-        <span className='form__subtitle form__subtitle_login'>
-          Еще не зарегистрированы?{" "}
-          <Link to="/signup" className="form__link form__link_login">
-            Регистрация
-          </Link>
-        </span>
       </div>
     </section>
   )

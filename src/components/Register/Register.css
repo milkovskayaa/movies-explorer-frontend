@@ -74,7 +74,7 @@
 }
 
 .form__button {
-  margin-top: 69px;
+  margin-top: 49px;
   height: 45px;
   background-color: #4285F4;
   font-family: 'Inter', Arial, sans-serif;
@@ -99,7 +99,6 @@
   line-height: 1.2;
   color: #8B8B8B;
   text-align: center;
-  padding-top: 16px;
 }
 
 .form__link {
@@ -157,10 +156,6 @@
   }
 
   .form__button {
-    margin-top: 157px;
-  }
-
-  .form__subtitle {
-    padding-top: 14px;
+    margin-top: 137px;
   }
 }

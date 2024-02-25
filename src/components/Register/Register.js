@@ -47,8 +47,7 @@ function Register() {
             />
             <span className='form__error form__error_active'>Что-то пошло не так...</span>
           </div>
-        </form>
-        <button type='button' className='form__button form__button_register'>
+          <button type='button' className='form__button form__button_register'>
             Зарегистрироваться
           </button>
           <span className='form__subtitle form__subtitle_register'>
@@ -57,6 +56,7 @@ function Register() {
               Войти
             </Link>
           </span>
+        </form>
       </div>
     </section>
   )

@@ -3,16 +3,21 @@
   padding: 60px 70px 0;
 }
 
-.form__input_search {
+.search__form-input {
   background-color: #2F2F2F;
   border-radius: 40px;
   padding: 14px 0px 14px 22px;
   color: #8B8B8B;
   max-width: 1140px;
   width: 100%;
+  font-family: 'Inter', Arial, sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 1.2;
+  border: none;
 }
 
-.search-form__button {
+.search__form-button {
   border: none;
   padding: 0;
   width: 34px;
@@ -27,7 +32,7 @@
   right: 6px;
 }
 
-.search-form__button:hover {
+.search__form-button:hover {
   cursor: pointer;
   opacity: 0.8;
 }

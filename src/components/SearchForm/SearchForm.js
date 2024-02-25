@@ -8,12 +8,12 @@ function SearchForm() {
       <form className='search__form'>
         <input 
         type='text'
-        className='form__input form__input_search'
+        className='search__form-input'
         placeholder='Фильм'
         name='movie'
         required
         />
-        <button className='search-form__button' type='submit' />
+        <button className='search__form-button' type='submit' />
       </form>
       <div className='search__switch-shorts'>
         <FilterCheckbox />
