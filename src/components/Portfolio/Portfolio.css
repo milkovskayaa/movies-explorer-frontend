@@ -13,6 +13,7 @@
 .portfolio__container {
   padding: 0 70px 125px;
   margin: 0 auto;
+  max-width: 1140px;
 }
 
 .portfolio__list {
@@ -93,6 +94,7 @@
 
   .portfolio__container {
     padding: 0 50px 80px; 
+    max-width: 768px;
   }
 }
 
@@ -104,6 +106,7 @@
 
   .portfolio__container {
     padding: 0 14px 70px; 
+    max-width: 320px;
   }
 
   .portfolio__title {

@@ -5,6 +5,7 @@
 .techs__container {
   margin: 0 auto;
   padding: 103px 70px;
+  max-width: 1140px;
 }
 
 .techs__info {
@@ -68,6 +69,7 @@
 @media screen and (max-width: 768px) {
   .techs__container {
     padding: 90px 50px;
+    max-width: 768px;
   }
 
   .techs__title {
@@ -100,6 +102,7 @@
 @media screen and (max-width: 510px) {
   .techs__container {
     padding: 70px 18px;
+    max-width: 320px;
   }
 
   .techs__info-title {
