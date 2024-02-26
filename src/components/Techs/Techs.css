@@ -1,0 +1,128 @@
+.techs {
+  background-color: #272727;
+}
+
+.techs__container {
+  margin: 0 auto;
+  padding: 103px 70px;
+  max-width: 1140px;
+}
+
+.techs__info {
+  border-top: 1px solid #dadada;
+}
+
+.techs__info-title {
+  font-weight: 400;
+  font-size: 50px;
+  line-height: 1.2;
+  text-align: center;
+  color: #fff;
+  margin: 0;
+  padding-top: 90px;
+  letter-spacing: -2px;
+}
+
+.techs__info-subtitle {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.4;
+  text-align: center;
+  color: #fff;
+  margin: 0;
+  padding-top: 25px;
+  padding-bottom: 100px;
+  max-width: 460px;
+  width: 100%;
+  margin: 0 auto;
+  letter-spacing: -0.56px;
+}
+
+.techs__info-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.techs__info-item {
+  width: 90px;
+  height: 60px;
+  border-radius: 10px;
+  background-color: #303030;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.techs__info-text {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.2;
+  color: #fff;
+  margin: 0;
+  letter-spacing: -0.56px;
+}
+
+@media screen and (max-width: 768px) {
+  .techs__container {
+    padding: 90px 50px;
+    max-width: 768px;
+  }
+
+  .techs__title {
+    padding-bottom: 24px;
+  }
+
+  .techs__info-subtitle {
+    font-size: 12px;
+    padding-top: 20px;
+    padding-bottom: 83px;
+    letter-spacing: -0.48px;
+    line-height: 1.5;
+  }
+
+  .techs__info-title {
+    padding-top: 80px;
+  }
+
+  .techs__info-item {
+    width: 84px;
+    height: 57px;
+  }
+
+  .techs__info-text {
+    font-size: 12px;
+    letter-spacing: -0.48px;
+  }
+}
+
+@media screen and (max-width: 510px) {
+  .techs__container {
+    padding: 70px 18px;
+    max-width: 320px;
+  }
+
+  .techs__info-title {
+    font-size: 30px;
+    padding-top: 62px;
+    letter-spacing: -1.2px;
+  }
+
+  .techs__info-subtitle {
+    font-size: 11px;
+    padding-top: 24px;
+    padding-bottom: 50px;
+    letter-spacing: -0.44px;
+  }
+
+  .techs__info-list {
+    flex-wrap: wrap;
+    max-width: 178px;
+    width: 100%;
+    margin: 0 auto;
+    justify-content: flex-start;
+  }
+}

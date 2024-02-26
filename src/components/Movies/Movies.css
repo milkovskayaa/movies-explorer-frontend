@@ -1,0 +1,48 @@
+.movies {
+  background-color: #202020;
+  display: flex;
+  flex-direction: column;
+}
+
+.movies__button-more {
+  max-width: 1140px;
+  width: 100%;
+  height: 36px;
+  padding: 0;
+  border: none;
+  border-radius: 6px;
+  background-color: #2F2F2F;
+  font-family: 'Inter', Arial, sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.2;
+  text-align: center;
+  color: #fff;
+  margin: 10px 70px 90px;
+  align-self: center;
+}
+
+.movies__button-more:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+@media screen and (max-width:1249px) {
+  .movies__button-more {
+    max-width: 708px;
+    margin: 50px auto 80px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .movies__button-more {
+    margin: 50px 30px 80px;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .movies__button-more {
+    max-width: 300px;
+    margin: 50px 10px 80px;
+  }
+}

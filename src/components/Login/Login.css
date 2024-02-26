@@ -1,0 +1,13 @@
+.login {
+  background-color: #202020;
+}
+
+.form__button_login {
+  margin-top: 159px;
+}
+
+@media screen and (max-width: 320px) {
+  .form__button_login {
+    margin-top: 247px;
+  }
+}
