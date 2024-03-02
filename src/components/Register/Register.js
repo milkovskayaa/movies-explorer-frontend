@@ -1,7 +1,8 @@
 import React from 'react';
 import './Register.css';
 import logo from '../../images/logo.svg';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
+import * as MainApi from '../../utils/MainApi';
 
 function Register() {
   return(
@@ -45,7 +46,7 @@ function Register() {
               placeholder='Введите пароль'
               required
             />
-            <span className='form__error form__error_active'>Что-то пошло не так...</span>
+            <span className='form__error'>Что-то пошло не так...</span>
           </div>
           <button type='button' className='form__button form__button_register'>
             Зарегистрироваться
