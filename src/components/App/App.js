@@ -64,7 +64,7 @@ function App() {
     else {
       const likedMovie = likedMovies.find((c) => c.id === movieData._id)
       return MainApi.deleteMovie(likedMovie._id, localStorage.getItem('token'))
-        .then((deletedMovie) => {
+        .then(() => {
           setLikedMovies((state) => state.filter((c) => c._id !== likedMovie._id))
         })
     }
