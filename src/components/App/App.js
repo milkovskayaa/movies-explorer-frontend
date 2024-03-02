@@ -14,7 +14,7 @@ import moviesApi from '../../utils/MoviesApi';
 
 function App() {
 
-  const isLogged = localStorage.getItem('jwt') ? true : false;
+  const isLogged = localStorage.getItem('token') ? true : false;
   const [loggedIn, setLoggedIn] = React.useState(isLogged);
   const [currentUser, setCurrentUser] = React.useState({});
   const [likedMovies, setLikedMovies] = React.useState([]);
@@ -23,6 +23,19 @@ function App() {
   const handleLogin = () => {
     setLoggedIn(true);
   };
+
+  // получение данных пользователя
+  React.useEffect(() => {
+    if (loggedIn) {
+      MainApi.getInfoProfile(localStorage.getItem('token'))
+        .then((res) => {
+          if(res) {
+            setCurrentUser(res);
+          }
+        })
+        .catch((err) => console.log(err))
+    }
+  }, [loggedIn])
 
   // загрузка всех фильмов с сервера
   React.useEffect(() => {
@@ -38,18 +51,21 @@ function App() {
 
   // сохранение карточки
  const handleMovieLike = (movieData) => {
-    const isLiked = likedMovies.some((movie) => movieData.id === movie.id);
+  console.log(movieData)
+    const isLiked = likedMovies.some((movie) => movieData._id === movie.id);
+    console.log(isLiked)
     if (!isLiked) {
-      MainApi.postNewMovie(movieData, localStorage.getItem('token'))
+      return MainApi.postNewMovie(movieData, localStorage.getItem('token'))
         .then((newMovie) => {
           setLikedMovies([...likedMovies, newMovie])
         })
         .catch((err) => console.log(err));
     }
     else {
-      MainApi.deleteMovie(movieData.id, localStorage.getItem('token'))
+      const likedMovie = likedMovies.find((c) => c.id === movieData._id)
+      return MainApi.deleteMovie(likedMovie._id, localStorage.getItem('token'))
         .then((deletedMovie) => {
-          setLikedMovies((state) => state.map((c) => c.id === movieData.id ? deletedMovie : c))
+          setLikedMovies((state) => state.filter((c) => c._id !== likedMovie._id))
         })
     }
   }
