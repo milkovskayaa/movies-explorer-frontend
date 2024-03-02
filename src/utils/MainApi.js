@@ -83,7 +83,7 @@ export const getSavedMovies = (token) => {
 }
 
 // запрос на добавление фильма
-export const postNewMovie = (country, director, duration, year, description, image, trailer, nameRU, nameEN, thumbnail, movieId, token) => {
+export const postNewMovie = (movieData, token) => {
   return fetch(`${BASE_URL}/movies`, {
     method: 'POST',
     headers: {
@@ -91,24 +91,24 @@ export const postNewMovie = (country, director, duration, year, description, ima
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      country: country,
-      director: director,
-      duration: duration,
-      year: year,
-      description: description,
-      image: image,
-      trailer: trailer,
-      nameRU: nameRU,
-      nameEN: nameEN,
-      thumbnail: thumbnail,
-      movieId: movieId
+      country: movieData.country,
+      director: movieData.director,
+      duration: movieData.duration,
+      year: movieData.year,
+      description: movieData.description,
+      image: `https://api.nomoreparties.co/${movieData.image.url}`,
+      trailerLink: movieData.trailerLink,
+      nameRU: movieData.nameRU,
+      nameEN: movieData.nameEN,
+      thumbnail: `https://api.nomoreparties.co/${movieData.image.url}`,
+      movieId: movieData.id
     })
   }).then(checkResponse)
 }
 
 // запрос на удаление фильма
-export const deleteMovie = (token) => {
-  return fetch(`${BASE_URL}/movies/_id`, {
+export const deleteMovie = (movieId, token) => {
+  return fetch(`${BASE_URL}/movies/${movieId}`, {
     method: 'DELETE',
     headers: {
       authorization: `Bearer ${token}`,

@@ -13,6 +13,7 @@
   height: 203px;
   object-fit: cover;
   display: block;
+  border-radius: 6px 6px 0 0;
 }
 
 .card__name {
@@ -99,16 +100,6 @@
 }
 
 @media screen and (max-width: 369px) {
-  /* .card {
-    width: 300px;
-    height: 237px;
-  }
-
-  .card__image {
-    width: 300px;
-    height: 168px;
-  } */
-
   .card__duration {
     font-size: 10px;
     padding: 0 0 14px 14px;
