@@ -52,18 +52,19 @@ function App() {
   // сохранение карточки
  const handleMovieLike = (movieData) => {
   console.log(movieData)
-    const isLiked = likedMovies.some((movie) => movieData._id === movie.id);
+    const isLiked = likedMovies.some((movie) => movieData.id === movie.movieId);
     console.log(isLiked)
     if (!isLiked) {
-      return MainApi.postNewMovie(movieData, localStorage.getItem('token'))
+      MainApi.postNewMovie(movieData, localStorage.getItem('token'))
         .then((newMovie) => {
           setLikedMovies([...likedMovies, newMovie])
         })
         .catch((err) => console.log(err));
     }
     else {
-      const likedMovie = likedMovies.find((c) => c.id === movieData._id)
-      return MainApi.deleteMovie(likedMovie._id, localStorage.getItem('token'))
+      const likedMovie = likedMovies.find((movie) => movie.movieId === movieData.id)
+      console.log(likedMovie)
+      MainApi.deleteMovie(likedMovie._id, localStorage.getItem('token'))
         .then(() => {
           setLikedMovies((state) => state.filter((c) => c._id !== likedMovie._id))
         })
