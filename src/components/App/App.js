@@ -17,6 +17,9 @@ function App() {
   const [loggedIn, setLoggedIn] = React.useState(isLogged);
   const [currentUser, setCurrentUser] = React.useState({});
 
+  const handleLogin = () => {
+    setLoggedIn(true);
+  };
 
   return (
     <div className='root'>
@@ -28,11 +31,11 @@ function App() {
           />
           <Route
             path='/signup'
-            element={<Register />}
+            element={<Register handleLogin={handleLogin} />}
           />
           <Route
             path='/signin'
-            element={<Login />}
+            element={<Login handleLogin={handleLogin} />}
           />
           <Route 
             path='/movies'
