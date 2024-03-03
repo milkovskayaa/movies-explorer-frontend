@@ -19,7 +19,8 @@ function App() {
   const [currentUser, setCurrentUser] = React.useState({});
   const [likedMovies, setLikedMovies] = React.useState([]);
   const [movies, setMovies] = React.useState([]);
-  const [errorInfo, setErrorInfo] = React.useState('');
+  const [editError, setEditError] = React.useState('');
+  const [editSuccess, setEditSuccess] = React.useState('');
   const navigate = useNavigate();
 
   const handleLogin = () => {
@@ -65,13 +66,16 @@ function App() {
     MainApi.updateProfile(data.name, data.email, localStorage.getItem('token'))
       .then((res) => {
         setCurrentUser(res);
+        setEditError('');
+        setEditSuccess('Данные профиля успешно обновлены')
       })
       .catch((err) => {
+        setEditSuccess('');
         if (err.status === 409) {
-          setErrorInfo('Пользователь с таким email уже существует')
+          setEditError('Пользователь с таким email уже существует')
         }
         console.log(err);
-        setErrorInfo('При обновлении профиля произошла ошибка')
+        setEditError('При обновлении профиля произошла ошибка')
       });
   }
 
@@ -136,7 +140,8 @@ function App() {
               currentUser={currentUser} 
               signOut={signOut}
               updateUserInfo={updateUserInfo}
-              errorInfo={errorInfo}
+              editError={editError}
+              editSuccess={editSuccess}
               />
             }
           />

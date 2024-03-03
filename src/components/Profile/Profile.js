@@ -4,7 +4,14 @@ import Header from '../Header/Header';
 import { Link } from 'react-router-dom';
 import { useFormWithValidation } from '../../utils/formValidator';
 
-function Profile({loggedIn, currentUser, signOut, updateUserInfo, errorInfo}) {
+function Profile({
+  loggedIn,
+  currentUser,
+  signOut,
+  updateUserInfo,
+  editError,
+  editSuccess
+}) {
 
   const [isEditButtonActive, setEditButtonActive] = React.useState(false);
   const [isEditForm, setEditForm] = React.useState(false);
@@ -42,7 +49,7 @@ function Profile({loggedIn, currentUser, signOut, updateUserInfo, errorInfo}) {
     updateUserInfo({
       name: values.name,
       email: values.email
-    })
+    });
   }
 
   return(
@@ -84,9 +91,11 @@ function Profile({loggedIn, currentUser, signOut, updateUserInfo, errorInfo}) {
                 </div>
                 <span className='form__error profile__error_email'>{errors.email}</span>
               </div>
-              <span className='form__submit-error'>{errorInfo}</span>
+              <span className='form__submit-error form__submit-success'>{editSuccess}</span>
+              <span className='form__submit-error'>{editError}</span>
               <button
                 type='submit'
+                disabled={!isValid}
                 className={`profile-btn profile-btn_edit profile-btn_edit_active ${!isValid ? 'profile-btn_disabled' : ''}`}>
                 Сохранить
               </button>

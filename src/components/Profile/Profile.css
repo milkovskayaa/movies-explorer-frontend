@@ -88,6 +88,7 @@
   line-height: 1.2;
   color: #fff;
   text-align: center;
+  cursor: pointer;
 }
 
 .profile-btn_edit_active {
@@ -108,7 +109,6 @@
 }
 
 .profile-btn:hover {
-  cursor: pointer;
   opacity: 0.7;
 }
 
@@ -121,6 +121,10 @@
 .profile__link {
   display: block;
   align-self: center;
+}
+
+.form__submit-success {
+  color: #228b22;
 }
 
 @media screen and (max-width: 768px) {

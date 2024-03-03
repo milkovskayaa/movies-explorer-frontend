@@ -85,7 +85,10 @@ function Register({ handleLogin }) {
           </div>
           <div className='form__submit form__submit_register'>
             <span className='form__submit-error'>{formError}</span>
-            <button type='submit' className={`form__button form__button_register ${!isValid ? 'form__button_disabled' : ''}`}>
+            <button
+              type='submit'
+              disabled={!isValid}
+              className={`form__button form__button_register ${!isValid ? 'form__button_disabled' : ''}`}>
             Зарегистрироваться
             </button>
           </div>
