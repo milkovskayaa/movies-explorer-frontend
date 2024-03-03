@@ -11,6 +11,7 @@ import Profile from '../Profile/Profile';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import * as MainApi from '../../utils/MainApi';
 import moviesApi from '../../utils/MoviesApi';
+import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
 function App() {
 
@@ -120,28 +121,35 @@ function App() {
           <Route 
             path='/movies'
             element={
-              <Movies
-              loggedIn={loggedIn}
-              movies={movies} 
-              handleMovieLike={handleMovieLike}
-              likedMovies={likedMovies}
+              <ProtectedRoute
+                element={Movies}
+                loggedIn={loggedIn}
+                movies={movies} 
+                handleMovieLike={handleMovieLike}
+                likedMovies={likedMovies}
               />
             }
           />
           <Route
             path='/saved-movies'
-            element={<SavedMovies loggedIn={loggedIn}/>}
+            element={
+              <ProtectedRoute 
+                element={SavedMovies}
+                loggedIn={loggedIn}
+              />
+            }
           />
           <Route
             path='/profile'
             element={
-              <Profile
-              loggedIn={loggedIn}
-              currentUser={currentUser} 
-              signOut={signOut}
-              updateUserInfo={updateUserInfo}
-              editError={editError}
-              editSuccess={editSuccess}
+              <ProtectedRoute 
+                element={Profile}
+                loggedIn={loggedIn}
+                currentUser={currentUser} 
+                signOut={signOut}
+                updateUserInfo={updateUserInfo}
+                editError={editError}
+                editSuccess={editSuccess}
               />
             }
           />
