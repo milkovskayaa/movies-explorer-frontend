@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import './App.css';
 import Main from '../Main/Main';
 import PageNotFound from '../PageNotFound/PageNotFound';
@@ -19,9 +19,19 @@ function App() {
   const [currentUser, setCurrentUser] = React.useState({});
   const [likedMovies, setLikedMovies] = React.useState([]);
   const [movies, setMovies] = React.useState([]);
+  const [errorInfo, setErrorInfo] = React.useState('');
+  const navigate = useNavigate();
 
   const handleLogin = () => {
     setLoggedIn(true);
+  };
+
+  // функция выхода из системы
+  const signOut = () => {
+    localStorage.removeItem('token');
+    setCurrentUser('');
+    navigate('/', { replace: true });
+    setLoggedIn(false);
   };
 
   // получение данных пользователя
@@ -30,10 +40,11 @@ function App() {
       MainApi.getInfoProfile(localStorage.getItem('token'))
         .then((res) => {
           if(res) {
+            console.log(res)
             setCurrentUser(res);
           }
         })
-        .catch((err) => console.log(err))
+        .catch((err) => console.log(err));
     }
   }, [loggedIn])
 
@@ -44,10 +55,25 @@ function App() {
         .then((movies) => {
           setMovies(movies)
         })
-        .catch((err) => console.log(err))
+        .catch((err) => console.log(err));
     }
   }, [loggedIn]);
 
+  // обновление инфо о пользователе
+  const updateUserInfo = (data) => {
+    console.log(data)
+    MainApi.updateProfile(data.name, data.email, localStorage.getItem('token'))
+      .then((res) => {
+        setCurrentUser(res);
+      })
+      .catch((err) => {
+        if (err.status === 409) {
+          setErrorInfo('Пользователь с таким email уже существует')
+        }
+        console.log(err);
+        setErrorInfo('При обновлении профиля произошла ошибка')
+      });
+  }
 
   // сохранение карточки
  const handleMovieLike = (movieData) => {
@@ -91,7 +117,7 @@ function App() {
             path='/movies'
             element={
               <Movies
-              loggedIn={true}
+              loggedIn={loggedIn}
               movies={movies} 
               handleMovieLike={handleMovieLike}
               likedMovies={likedMovies}
@@ -100,11 +126,19 @@ function App() {
           />
           <Route
             path='/saved-movies'
-            element={<SavedMovies loggedIn={true}/>}
+            element={<SavedMovies loggedIn={loggedIn}/>}
           />
           <Route
             path='/profile'
-            element={<Profile loggedIn={true} />}
+            element={
+              <Profile
+              loggedIn={loggedIn}
+              currentUser={currentUser} 
+              signOut={signOut}
+              updateUserInfo={updateUserInfo}
+              errorInfo={errorInfo}
+              />
+            }
           />
           <Route
             path='*'

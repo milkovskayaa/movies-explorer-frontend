@@ -18,8 +18,15 @@ function Register({ handleLogin }) {
     MainApi.register(name, email, password)
       .then((res) => {
         if (res) {
-          handleLogin();
-          navigate('/movies', { replace: true })
+          console.log(res)
+          MainApi.authorize(email, password)
+          .then((data) => {
+            if (data.token) {
+              handleLogin();
+              navigate('/movies', { replace: true })
+            }
+          })
+          .catch((err) => console.log(err))
         }
       })
       .catch((err) => {
@@ -44,13 +51,13 @@ function Register({ handleLogin }) {
               onChange={handleChange}
               type='text'
               className='form__input form__input_register' 
-              name='username'
+              name='name'
               placeholder='Виталий'
               minLength={2}
               maxLength={30}
               required
             />
-            <span className='form__error'>{errors.username}</span>
+            <span className='form__error'>{errors.name}</span>
           </div>
           <div className='form__input-box form__input-box_register'>
             <label className='form__label form__label_register'>E-mail</label>
