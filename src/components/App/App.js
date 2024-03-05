@@ -10,7 +10,7 @@ import SavedMovies from '../SavedMovies/SavedMovies';
 import Profile from '../Profile/Profile';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import * as MainApi from '../../utils/MainApi';
-import moviesApi from '../../utils/MoviesApi';
+// import moviesApi from '../../utils/MoviesApi';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
   const [loggedIn, setLoggedIn] = React.useState(isLogged);
   const [currentUser, setCurrentUser] = React.useState({});
   const [likedMovies, setLikedMovies] = React.useState([]);
-  const [movies, setMovies] = React.useState([]);
+  // const [movies, setMovies] = React.useState([]);
   const [editError, setEditError] = React.useState('');
   const [editSuccess, setEditSuccess] = React.useState('');
   const navigate = useNavigate();
@@ -27,6 +27,25 @@ function App() {
   const handleLogin = () => {
     setLoggedIn(true);
   };
+
+  React.useEffect(() => {
+    checkToken();
+  }, [loggedIn]);
+
+  // проверка токена
+  const checkToken = () => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      MainApi.getContent(token)
+        .then((res) => {
+          if (res) {
+            setCurrentUser(res);
+            setLoggedIn(true);
+          }
+        })
+        .catch((err) => console.log(err))
+    }
+  }
 
   // функция выхода из системы
   const signOut = () => {
@@ -38,28 +57,27 @@ function App() {
 
   // получение данных пользователя
   React.useEffect(() => {
+    const token = localStorage.getItem('token')
     if (loggedIn) {
-      MainApi.getInfoProfile(localStorage.getItem('token'))
-        .then((res) => {
-          if(res) {
-            console.log(res)
-            setCurrentUser(res);
-          }
+      Promise.all([MainApi.getInfoProfile(token), MainApi.getSavedMovies(token)])
+        .then(([userInfo, movies]) => {
+          setCurrentUser(userInfo);
+          setLikedMovies(movies)
         })
         .catch((err) => console.log(err));
     }
   }, [loggedIn])
 
   // загрузка всех фильмов с сервера
-  React.useEffect(() => {
-    if (loggedIn) {
-      moviesApi.getMovies()
-        .then((movies) => {
-          setMovies(movies)
-        })
-        .catch((err) => console.log(err));
-    }
-  }, [loggedIn]);
+  // React.useEffect(() => {
+  //   if (loggedIn) {
+  //     moviesApi.getMovies()
+  //       .then((movies) => {
+  //         setMovies(movies)
+  //       })
+  //       .catch((err) => console.log(err));
+  //   }
+  // }, [loggedIn]);
 
   // обновление инфо о пользователе
   const updateUserInfo = (data) => {
@@ -124,7 +142,7 @@ function App() {
               <ProtectedRoute
                 element={Movies}
                 loggedIn={loggedIn}
-                movies={movies} 
+                // movies={movies} 
                 handleMovieLike={handleMovieLike}
                 likedMovies={likedMovies}
               />
