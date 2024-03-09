@@ -44,6 +44,12 @@
   position: relative;
 }
 
+.search__form-error {
+  text-align: center;
+  display: block;
+  padding-top: 7px;
+}
+
 .search__switch-shorts {
   padding-top: 41px;
   padding-bottom: 70px;

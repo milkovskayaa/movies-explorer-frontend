@@ -15,21 +15,24 @@ function SearchForm({
 
   const { values, handleChange } = useFormWithValidation();
 
-  const handleSwithShorts = () => {
-    if (!isShortSwitch) {
-      setShortSwitch(true);
-      findMovies(movies, values.movie || '', isShortSwitch)
+  const handleChangeShorts = () => {
+    setShortSwitch(!isShortSwitch)
+    if (isShortSwitch === true) {
+      findMovies(movies, values.movie || '', true)
     }
     else {
-      setShortSwitch(false);
-      findMovies(movies, values.movie || '', isShortSwitch)
+      findMovies(movies, values.movie || '', false)
     }
-  };
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleSearchMovie(values.movie)
-    console.log(values.movie)
+    if (values.movie === '' || values.movie === undefined) {
+      setSearchError('Нужно ввести ключевое слово');
+    }
+    else {
+      handleSearchMovie(values.movie);
+    }
   }
 
   return(
@@ -37,17 +40,17 @@ function SearchForm({
       <form className='search__form' onSubmit={handleSubmit}>
         <input 
         onChange={handleChange}
-        // defaultValue={values.movie}
+        defaultValue={values.movie}
         type='text'
         className='search__form-input'
         placeholder='Фильм'
         name='movie'
-        required
         />
         <button className='search__form-button' type='submit' />
       </form>
+      <span className='form__error search__form-error'>{searchError}</span>
       <div className='search__switch-shorts'>
-        <FilterCheckbox handleSwithShorts={handleSwithShorts} isShortSwitch={isShortSwitch} />
+        <FilterCheckbox isShortSwitch={isShortSwitch} handleChangeShorts={handleChangeShorts}/>
         <p className='search__switch-shorts__subtitle'>Короткометражки</p>
       </div>
     </section>

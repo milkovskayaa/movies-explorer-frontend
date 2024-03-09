@@ -13,9 +13,18 @@ function Movies({loggedIn, handleMovieLike, likedMovies}) {
   const [movies, setMovies] = React.useState([]);
   const [foundMovies, setFoundMovies] = React.useState([]);
   const [isShowPreloader, setShowPreloader] = React.useState(false);
-  // const [searchValue, setSearchValue] = React.useState('');
+  const [searchValue, setSearchValue] = React.useState('');
   const [isShortSwitch, setShortSwitch] = React.useState(false);
   const [searchError, setSearchError] = React.useState('');
+
+  // если поиск не первый, загружаем из LocalStorage данные поиска 
+  React.useEffect(() => {
+    if (localStorage.movies) {
+      setMovies(JSON.parse(localStorage.movies));
+      setSearchValue(JSON.parse(localStorage.searchValue));
+      setShortSwitch(JSON.parse(localStorage.stateCheckbox));
+    }
+  }, [])
 
   // функция поиска фильмов
   const findMovies= useCallback((movies, searchValue, isShortSwitch) => {
@@ -29,13 +38,16 @@ function Movies({loggedIn, handleMovieLike, likedMovies}) {
         return filtredMovie;
       }
     }))
+
+    // записываем в LocalStorage текст запроса, состояние переключателя и найденные фильмы
+    localStorage.setItem('searchValue', JSON.stringify(searchValue));
+    localStorage.setItem('stateCheckbox', JSON.stringify(isShortSwitch));
+    localStorage.setItem('movies', JSON.stringify(movies));
   }, []);
 
   function handleSearchMovie(searchValue) {
     console.log(searchValue)
     setShowPreloader(true);
-    // если фильмы еще не искали -> загружаем из api и делаем поиск
-    // if (movies === 0) {
       moviesApi.getMovies()
         .then((movies) => {
           findMovies(movies, searchValue, isShortSwitch)
@@ -47,7 +59,6 @@ function Movies({loggedIn, handleMovieLike, likedMovies}) {
            setSearchError('Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз')
         })
         .finally(() => setShowPreloader(false));
-    // }
   }
 
   return(

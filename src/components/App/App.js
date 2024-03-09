@@ -68,17 +68,6 @@ function App() {
     }
   }, [loggedIn])
 
-  // загрузка всех фильмов с сервера
-  // React.useEffect(() => {
-  //   if (loggedIn) {
-  //     moviesApi.getMovies()
-  //       .then((movies) => {
-  //         setMovies(movies)
-  //       })
-  //       .catch((err) => console.log(err));
-  //   }
-  // }, [loggedIn]);
-
   // обновление инфо о пользователе
   const updateUserInfo = (data) => {
     console.log(data)

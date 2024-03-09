@@ -1,15 +1,20 @@
 import React from 'react';
 import './FilterCheckbox.css';
 
-function FilterCheckbox({handleSwitchShorts, isShortSwitch}) {
+function FilterCheckbox({isShortSwitch, handleChangeShorts}) {
+
+  const handleChange = () => {
+    handleChangeShorts();
+  }
 
   return(
-    <label className='filter-checkbox'>
+    <label htmlFor='checkbox' className='filter-checkbox'>
       <input 
-        // onChange={handleSwitchShorts}
         type="checkbox"
+        id='checkbox'
         className='filter-checkbox__input' 
-        // checked={isShortSwitch}
+        defaultChecked={isShortSwitch}
+        onChange={handleChange}
       />
       <span className="filter-checkbox__slider"></span>
     </label>
