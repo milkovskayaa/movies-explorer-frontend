@@ -8,11 +8,19 @@ import Preloader from '../Preloader/Preloader';
 import Footer from '../Footer/Footer';
 import moviesApi from '../../utils/MoviesApi';
 
-function Movies({loggedIn, handleMovieLike, likedMovies}) {
+function Movies({
+  loggedIn,
+  handleMovieLike,
+  likedMovies,
+  isShowPreloader,
+  setShowPreloader,
+  foundMovies,
+  setFoundMovies,
+  deleteMovie
+}) {
 
   const [movies, setMovies] = React.useState([]);
-  const [foundMovies, setFoundMovies] = React.useState([]);
-  const [isShowPreloader, setShowPreloader] = React.useState(false);
+  // const [foundMovies, setFoundMovies] = React.useState([]);
   const [searchValue, setSearchValue] = React.useState('');
   const [isShortSwitch, setShortSwitch] = React.useState(false);
   const [searchError, setSearchError] = React.useState('');
@@ -43,10 +51,9 @@ function Movies({loggedIn, handleMovieLike, likedMovies}) {
     localStorage.setItem('searchValue', JSON.stringify(searchValue));
     localStorage.setItem('stateCheckbox', JSON.stringify(isShortSwitch));
     localStorage.setItem('movies', JSON.stringify(movies));
-  }, []);
+  }, [setFoundMovies]);
 
   function handleSearchMovie(searchValue) {
-    console.log(searchValue)
     setShowPreloader(true);
       moviesApi.getMovies()
         .then((movies) => {
@@ -72,9 +79,18 @@ function Movies({loggedIn, handleMovieLike, likedMovies}) {
         findMovies={findMovies}
         searchError={searchError}
         setSearchError={setSearchError}
+        searchValue={searchValue}
+        setSearchValue={setSearchValue}
       />
       <Preloader isShowPreloader={isShowPreloader} />
-      <MoviesCardList foundMovies={foundMovies} movies={movies} handleMovieLike={handleMovieLike} likedMovies={likedMovies} />
+      <MoviesCardList 
+        foundMovies={foundMovies}
+        setFoundMovies={setFoundMovies}
+        // movies={movies}
+        handleMovieLike={handleMovieLike}
+        likedMovies={likedMovies}
+        deleteMovie={deleteMovie}
+      />
       <Footer />
     </section>
   )

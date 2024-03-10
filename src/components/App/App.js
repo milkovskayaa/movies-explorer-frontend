@@ -19,7 +19,9 @@ function App() {
   const [loggedIn, setLoggedIn] = React.useState(isLogged);
   const [currentUser, setCurrentUser] = React.useState({});
   const [likedMovies, setLikedMovies] = React.useState([]);
+  const [isShowPreloader, setShowPreloader] = React.useState(false);
   // const [movies, setMovies] = React.useState([]);
+  const [foundMovies, setFoundMovies] = React.useState([]);
   const [editError, setEditError] = React.useState('');
   const [editSuccess, setEditSuccess] = React.useState('');
   const navigate = useNavigate();
@@ -50,6 +52,7 @@ function App() {
   // функция выхода из системы
   const signOut = () => {
     localStorage.removeItem('token');
+    localStorage.removeItem('likedMovies');
     setCurrentUser('');
     navigate('/', { replace: true });
     setLoggedIn(false);
@@ -62,7 +65,8 @@ function App() {
       Promise.all([MainApi.getInfoProfile(token), MainApi.getSavedMovies(token)])
         .then(([userInfo, movies]) => {
           setCurrentUser(userInfo);
-          setLikedMovies(movies)
+          setLikedMovies(movies);
+          localStorage.setItem('likedMovies', movies);
         })
         .catch((err) => console.log(err));
     }
@@ -89,7 +93,6 @@ function App() {
 
   // сохранение карточки
  const handleMovieLike = (movieData) => {
-  console.log(movieData)
     const isLiked = likedMovies.some((movie) => movieData.id === movie.movieId);
     console.log(isLiked)
     if (!isLiked) {
@@ -106,7 +109,17 @@ function App() {
         .then(() => {
           setLikedMovies((state) => state.filter((c) => c._id !== likedMovie._id))
         })
+        .catch((err) => console.log(err));
     }
+  }
+
+  // удаление карточки
+  const deleteMovie = (movie) => {
+    MainApi.deleteMovie(movie._id, localStorage.getItem('token'))
+      .then(() => {
+        setLikedMovies((state) => state.filter((c) => c._id !== movie._id))
+      })
+      .catch((err) => console.log(err));
   }
 
   return (
@@ -131,9 +144,13 @@ function App() {
               <ProtectedRoute
                 element={Movies}
                 loggedIn={loggedIn}
-                // movies={movies} 
                 handleMovieLike={handleMovieLike}
                 likedMovies={likedMovies}
+                isShowPreloader={isShowPreloader}
+                setShowPreloader={setShowPreloader}
+                foundMovies={foundMovies}
+                setFoundMovies={setFoundMovies}
+                deleteMovie={deleteMovie}
               />
             }
           />
@@ -143,6 +160,8 @@ function App() {
               <ProtectedRoute 
                 element={SavedMovies}
                 loggedIn={loggedIn}
+                likedMovies={likedMovies}
+                deleteMovie={deleteMovie}
               />
             }
           />

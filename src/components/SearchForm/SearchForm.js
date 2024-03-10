@@ -10,12 +10,14 @@ function SearchForm({
   setShortSwitch,
   findMovies,
   searchError,
-  setSearchError
+  setSearchError,
+  searchValue,
+  setSearchValue
 }) {
 
   const { values, handleChange } = useFormWithValidation();
 
-  const handleChangeShorts = () => {
+  const handleChangeCheckbox = () => {
     setShortSwitch(!isShortSwitch)
     if (isShortSwitch === true) {
       findMovies(movies, values.movie || '', true)
@@ -50,7 +52,7 @@ function SearchForm({
       </form>
       <span className='form__error search__form-error'>{searchError}</span>
       <div className='search__switch-shorts'>
-        <FilterCheckbox isShortSwitch={isShortSwitch} handleChangeShorts={handleChangeShorts}/>
+        <FilterCheckbox isShortSwitch={isShortSwitch} handleChangeCheckbox={handleChangeCheckbox}/>
         <p className='search__switch-shorts__subtitle'>Короткометражки</p>
       </div>
     </section>

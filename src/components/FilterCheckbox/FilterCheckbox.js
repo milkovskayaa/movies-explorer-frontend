@@ -1,10 +1,10 @@
 import React from 'react';
 import './FilterCheckbox.css';
 
-function FilterCheckbox({isShortSwitch, handleChangeShorts}) {
+function FilterCheckbox({isShortSwitch, handleChangeCheckbox}) {
 
   const handleChange = () => {
-    handleChangeShorts();
+    handleChangeCheckbox();
   }
 
   return(
