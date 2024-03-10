@@ -11,8 +11,7 @@ function SearchForm({
   findMovies,
   searchError,
   setSearchError,
-  searchValue,
-  setSearchValue
+  searchValue
 }) {
 
   const { values, handleChange } = useFormWithValidation();
@@ -42,7 +41,7 @@ function SearchForm({
       <form className='search__form' onSubmit={handleSubmit}>
         <input 
         onChange={handleChange}
-        defaultValue={values.movie}
+        defaultValue={searchValue}
         type='text'
         className='search__form-input'
         placeholder='Фильм'

@@ -20,7 +20,6 @@ function Movies({
 }) {
 
   const [movies, setMovies] = React.useState([]);
-  // const [foundMovies, setFoundMovies] = React.useState([]);
   const [searchValue, setSearchValue] = React.useState('');
   const [isShortSwitch, setShortSwitch] = React.useState(false);
   const [searchError, setSearchError] = React.useState('');
@@ -54,7 +53,11 @@ function Movies({
   }, [setFoundMovies]);
 
   function handleSearchMovie(searchValue) {
-    setShowPreloader(true);
+    if (localStorage.getItem('movies')) {
+      findMovies(movies, searchValue, isShortSwitch)
+    }
+    else {
+      setShowPreloader(true);
       moviesApi.getMovies()
         .then((movies) => {
           findMovies(movies, searchValue, isShortSwitch)
@@ -66,6 +69,7 @@ function Movies({
            setSearchError('Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз')
         })
         .finally(() => setShowPreloader(false));
+    }
   }
 
   return(
@@ -80,7 +84,7 @@ function Movies({
         searchError={searchError}
         setSearchError={setSearchError}
         searchValue={searchValue}
-        setSearchValue={setSearchValue}
+        // setSearchValue={setSearchValue}
       />
       <Preloader isShowPreloader={isShowPreloader} />
       <MoviesCardList 

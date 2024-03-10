@@ -3,13 +3,14 @@ import './SavedMovies.css';
 import Header from '../Header/Header';
 // import SearchForm from '../SearchForm/SearchForm';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
-// import Preloader from '../Preloader/Preloader';
+import Preloader from '../Preloader/Preloader';
 import Footer from '../Footer/Footer';
 
 function SavedMovies({
   loggedIn, 
   likedMovies,
-  deleteMovie
+  deleteMovie,
+  isShowPreloader
 }) {
 
   return(
@@ -19,10 +20,9 @@ function SavedMovies({
         {/* <SearchForm /> */}
         <MoviesCardList
           foundMovies={likedMovies}
-          // setFoundMovies={setFoundMovies}
           likedMovies={likedMovies}
           deleteMovie={deleteMovie} />
-        {/* <Preloader /> */}
+        <Preloader isShowPreloader={isShowPreloader} />
       </section>
       <Footer />
     </>

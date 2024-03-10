@@ -162,6 +162,7 @@ function App() {
                 loggedIn={loggedIn}
                 likedMovies={likedMovies}
                 deleteMovie={deleteMovie}
+                isShowPreloader={isShowPreloader}
               />
             }
           />
