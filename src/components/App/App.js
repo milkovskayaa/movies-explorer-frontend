@@ -22,6 +22,7 @@ function App() {
   const [isShowPreloader, setShowPreloader] = React.useState(false);
   // const [movies, setMovies] = React.useState([]);
   const [foundMovies, setFoundMovies] = React.useState([]);
+  const [searchError, setSearchError] = React.useState('');
   const [editError, setEditError] = React.useState('');
   const [editSuccess, setEditSuccess] = React.useState('');
   const navigate = useNavigate();
@@ -151,6 +152,8 @@ function App() {
                 foundMovies={foundMovies}
                 setFoundMovies={setFoundMovies}
                 deleteMovie={deleteMovie}
+                searchError={searchError}
+                setSearchError={setSearchError}
               />
             }
           />
@@ -161,8 +164,11 @@ function App() {
                 element={SavedMovies}
                 loggedIn={loggedIn}
                 likedMovies={likedMovies}
+                setLikedMovies={setLikedMovies}
                 deleteMovie={deleteMovie}
                 isShowPreloader={isShowPreloader}
+                searchError={searchError}
+                setSearchError={setSearchError}
               />
             }
           />

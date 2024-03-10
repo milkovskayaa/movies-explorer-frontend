@@ -2,6 +2,7 @@ import React from 'react';
 import './SearchForm.css';
 import FilterCheckbox from '../FilterCheckbox/FilterCheckbox';
 import { useFormWithValidation } from '../../utils/formValidator';
+import { useLocation } from 'react-router-dom';
 
 function SearchForm({
   movies,
@@ -11,10 +12,12 @@ function SearchForm({
   findMovies,
   searchError,
   setSearchError,
-  searchValue
+  searchValue,
+  setSearchValue
 }) {
 
   const { values, handleChange } = useFormWithValidation();
+  const location = useLocation();
 
   const handleChangeCheckbox = () => {
     setShortSwitch(!isShortSwitch)
@@ -33,8 +36,15 @@ function SearchForm({
     }
     else {
       handleSearchMovie(values.movie);
+      setSearchError('');
     }
   }
+
+  React.useEffect(() => {
+    if (location === '/saved-movies') {
+      setSearchValue('');
+    }
+  })
 
   return(
     <section className='search'>

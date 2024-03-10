@@ -16,13 +16,15 @@ function Movies({
   setShowPreloader,
   foundMovies,
   setFoundMovies,
-  deleteMovie
+  deleteMovie,
+  searchError,
+  setSearchError
 }) {
 
   const [movies, setMovies] = React.useState([]);
   const [searchValue, setSearchValue] = React.useState('');
   const [isShortSwitch, setShortSwitch] = React.useState(false);
-  const [searchError, setSearchError] = React.useState('');
+  // const [searchError, setSearchError] = React.useState('');
 
   // если поиск не первый, загружаем из LocalStorage данные поиска 
   React.useEffect(() => {
@@ -30,8 +32,9 @@ function Movies({
       setMovies(JSON.parse(localStorage.movies));
       setSearchValue(JSON.parse(localStorage.searchValue));
       setShortSwitch(JSON.parse(localStorage.stateCheckbox));
+      // setFoundMovies(JSON.parse(localStorage.foundMovies));
     }
-  }, [])
+  }, [setFoundMovies])
 
   // функция поиска фильмов
   const findMovies= useCallback((movies, searchValue, isShortSwitch) => {
@@ -50,7 +53,8 @@ function Movies({
     localStorage.setItem('searchValue', JSON.stringify(searchValue));
     localStorage.setItem('stateCheckbox', JSON.stringify(isShortSwitch));
     localStorage.setItem('movies', JSON.stringify(movies));
-  }, [setFoundMovies]);
+    localStorage.setItem('foundMovies', JSON.stringify(foundMovies));
+  }, [setFoundMovies, foundMovies]);
 
   function handleSearchMovie(searchValue) {
     if (localStorage.getItem('movies')) {
@@ -84,7 +88,7 @@ function Movies({
         searchError={searchError}
         setSearchError={setSearchError}
         searchValue={searchValue}
-        // setSearchValue={setSearchValue}
+        setSearchValue={setSearchValue}
       />
       <Preloader isShowPreloader={isShowPreloader} />
       <MoviesCardList 

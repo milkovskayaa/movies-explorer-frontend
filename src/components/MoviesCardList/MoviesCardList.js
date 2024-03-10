@@ -1,7 +1,7 @@
 import React from 'react';
 import './MoviesCardList.css'
 import MoviesCard from '../MoviesCard/MoviesCard';
-import { useLocation } from "react-router-dom";
+import { useLocation } from 'react-router-dom';
 // import {
 //   WIDTH_DESKTOP,
 //   WIDTH_TABLET,
@@ -44,6 +44,7 @@ function MoviesCardList({
   //     setShowMovies(MOBILE_CARDS);
   //   }
   // }
+
 
   React.useEffect(() => {
     if (foundMovies.length === 0) {

@@ -1,7 +1,8 @@
+import { useCallback } from 'react';
 import React from 'react';
 import './SavedMovies.css';
 import Header from '../Header/Header';
-// import SearchForm from '../SearchForm/SearchForm';
+import SearchForm from '../SearchForm/SearchForm';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
 import Preloader from '../Preloader/Preloader';
 import Footer from '../Footer/Footer';
@@ -9,15 +10,64 @@ import Footer from '../Footer/Footer';
 function SavedMovies({
   loggedIn, 
   likedMovies,
+  setLikedMovies,
   deleteMovie,
-  isShowPreloader
+  isShowPreloader,
+  searchError,
+  setSearchError
 }) {
+
+  const [searchSavedValue, setSearchSavedValue] = React.useState('');
+  const [isShortSwitchSaved, setShortSwitchSaved] = React.useState(false);
+
+  React.useEffect(() => {
+    if (searchSavedValue === undefined) {
+      setSearchError('Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз')
+    }
+  })
+
+  // функция поиска фильмов
+  const findMovies = useCallback((movies, searchValue, isShortSwitch) => {
+    console.log(searchValue)
+    setLikedMovies(movies.filter((movie) => {
+       const filtredMovie = movie.nameEN.toLowerCase().includes(searchValue.toLowerCase()) ||
+                           movie.nameRU.toLowerCase().includes(searchValue.toLowerCase());
+       if (isShortSwitch) {
+         return filtredMovie && movie.duration < 30;
+       }
+       else {
+         return filtredMovie;
+       }
+     }))
+
+     setSearchSavedValue(searchValue);
+ 
+     // записываем в LocalStorage текст запроса, состояние переключателя и найденные фильмы
+     localStorage.setItem('searchValueSaved', JSON.stringify(searchValue));
+     localStorage.setItem('stateCheckboxSaved', JSON.stringify(isShortSwitch));
+    //  localStorage.setItem('likedMovies', JSON.stringify(movies));
+   }, [setLikedMovies]);
+
+   const handleSearchSavedMovie = (searchSavedValue) => {
+    findMovies(likedMovies, searchSavedValue, isShortSwitchSaved);
+    console.log(searchSavedValue)
+   }
 
   return(
     <>
       <Header loggedIn={loggedIn} />
       <section className='movies'>
-        {/* <SearchForm /> */}
+        <SearchForm
+          movies={likedMovies}
+          handleSearchMovie={handleSearchSavedMovie}
+          isShortSwitch={isShortSwitchSaved}
+          setShortSwitch={setShortSwitchSaved}
+          findMovies={findMovies}
+          searchError={searchError}
+          setSearchError={setSearchError}
+          searchValue={searchSavedValue}
+          setSearchValue={setSearchSavedValue}
+        />
         <MoviesCardList
           foundMovies={likedMovies}
           likedMovies={likedMovies}
