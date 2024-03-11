@@ -24,17 +24,16 @@ function Movies({
   const [movies, setMovies] = React.useState([]);
   const [searchValue, setSearchValue] = React.useState('');
   const [isShortSwitch, setShortSwitch] = React.useState(false);
-  // const [searchError, setSearchError] = React.useState('');
 
   // если поиск не первый, загружаем из LocalStorage данные поиска 
   React.useEffect(() => {
-    if (localStorage.movies) {
+    if (localStorage.getItem('movies')) {
       setMovies(JSON.parse(localStorage.movies));
       setSearchValue(JSON.parse(localStorage.searchValue));
       setShortSwitch(JSON.parse(localStorage.stateCheckbox));
-      // setFoundMovies(JSON.parse(localStorage.foundMovies));
+      setFoundMovies(JSON.parse(localStorage.foundMovies));
     }
-  }, [])
+  }, [setFoundMovies])
 
   // функция поиска фильмов
   const findMovies= useCallback((movies, searchValue, isShortSwitch) => {
@@ -53,12 +52,15 @@ function Movies({
     localStorage.setItem('searchValue', JSON.stringify(searchValue));
     localStorage.setItem('stateCheckbox', JSON.stringify(isShortSwitch));
     localStorage.setItem('movies', JSON.stringify(movies));
-    // localStorage.setItem('foundMovies', JSON.stringify(foundMovies))
   }, [setFoundMovies]);
 
+  React.useEffect(() => {
+    localStorage.setItem('foundMovies', JSON.stringify(foundMovies));
+  })
+
   function handleSearchMovie(searchValue) {
-    if (localStorage.getItem('movies')) {
-      findMovies(movies, searchValue, isShortSwitch)
+    if (movies.length !== 0) {
+      findMovies(movies, searchValue, isShortSwitch);
     }
     else {
       setShowPreloader(true);
@@ -94,7 +96,6 @@ function Movies({
       <MoviesCardList 
         foundMovies={foundMovies}
         setFoundMovies={setFoundMovies}
-        // movies={movies}
         handleMovieLike={handleMovieLike}
         likedMovies={likedMovies}
         deleteMovie={deleteMovie}

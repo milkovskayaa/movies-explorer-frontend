@@ -1,4 +1,3 @@
-// import { useCallback } from 'react';
 import React from 'react';
 import './MoviesCardList.css'
 import MoviesCard from '../MoviesCard/MoviesCard';
@@ -6,7 +5,6 @@ import { useLocation } from 'react-router-dom';
 import {
   WIDTH_DESKTOP,
   WIDTH_TABLET,
-  // WIDTH_MOBILE,
   DESKTOP_CARDS,
   TABLET_CARDS,
   MOBILE_CARDS,
@@ -25,11 +23,9 @@ function MoviesCardList({
 
   const location = useLocation();
   const [notFoundText, setNotFoundText] = React.useState('');
-  // const [isButtonVisible, setButtonVisible] = React.useState(true);
   const [windowWidth, setWindowWidth] = React.useState(window.innerWidth);
   const [loadMovies, setLoadMovies] = React.useState(0);
   const [showMovies, setShowMovies] = React.useState(0);
-  // const showMoviesArray = foundMovies.slice(0, showMovies);
 
   // количество фильмов на странице
   React.useEffect(() => {
@@ -46,21 +42,6 @@ function MoviesCardList({
       setLoadMovies(MOBILE_LOAD_MOVIES);
     }
   }, [windowWidth, setShowMovies])
-
-  // React.useEffect(() => {
-  //   displayMovies();
-  // })
-
-  console.log(showMovies)
-  console.log(loadMovies)  
-  // console.log(showMoviesArray)
-  console.log(foundMovies)
-
-  // React.useEffect(() => {
-  //   if (location.pathname === '/movies') {
-  //     setF
-  //   }
-  // })
 
   const changeWindowWidth = () => {
     setWindowWidth(window.innerWidth);
@@ -80,11 +61,9 @@ function MoviesCardList({
     }
   })
 
-
   React.useEffect(() => {
     if (foundMovies.length === 0) {
       setNotFoundText('Ничего не найдено');
-      // setButtonVisible(false);
     }
   }, [foundMovies]);
 
@@ -122,15 +101,6 @@ function MoviesCardList({
                 ))}
               </>
             )}
-            {/* {foundMovies.map(item => (
-              <MoviesCard
-                key={item.id || item.movieId}
-                movie={item}
-                handleMovieLike={handleMovieLike}
-                likedMovies={likedMovies}
-                deleteMovie={deleteMovie}
-              />
-            ))} */}
             </section>
             {location.pathname === '/movies' &&  showMovies < foundMovies.length && (
               <button className='movies__button-more' onClick={handleMoreButton}>Ещё</button>

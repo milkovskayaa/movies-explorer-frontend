@@ -10,7 +10,6 @@ import SavedMovies from '../SavedMovies/SavedMovies';
 import Profile from '../Profile/Profile';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import * as MainApi from '../../utils/MainApi';
-// import moviesApi from '../../utils/MoviesApi';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
 function App() {
@@ -20,7 +19,6 @@ function App() {
   const [currentUser, setCurrentUser] = React.useState({});
   const [likedMovies, setLikedMovies] = React.useState([]);
   const [isShowPreloader, setShowPreloader] = React.useState(false);
-  // const [movies, setMovies] = React.useState([]);
   const [foundMovies, setFoundMovies] = React.useState([]);
   const [searchError, setSearchError] = React.useState('');
   const [editError, setEditError] = React.useState('');
@@ -50,10 +48,22 @@ function App() {
     }
   }
 
+  console.log(localStorage)
+
+  const clearLocalStorage = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('foundMovies');
+    localStorage.removeItem('likedMovies');
+    localStorage.removeItem('movies');
+    localStorage.removeItem('searchValue');
+    localStorage.removeItem('searchValueSaved');
+    localStorage.removeItem('stateCheckbox');
+    localStorage.removeItem('stateCheckboxSaved');
+  }
+
   // функция выхода из системы
   const signOut = () => {
-    localStorage.removeItem('token');
-    localStorage.removeItem('likedMovies');
+    clearLocalStorage();
     setCurrentUser('');
     navigate('/', { replace: true });
     setLoggedIn(false);
