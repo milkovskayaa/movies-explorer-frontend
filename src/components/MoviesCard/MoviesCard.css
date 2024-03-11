@@ -113,4 +113,8 @@
     padding: 7px 10px 6px 14px;
   }
 
+  .card__delete-movie {
+    opacity: 1;
+  }
+
 }

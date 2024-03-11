@@ -34,7 +34,7 @@ function Movies({
       setShortSwitch(JSON.parse(localStorage.stateCheckbox));
       // setFoundMovies(JSON.parse(localStorage.foundMovies));
     }
-  }, [setFoundMovies])
+  }, [])
 
   // функция поиска фильмов
   const findMovies= useCallback((movies, searchValue, isShortSwitch) => {
@@ -53,8 +53,8 @@ function Movies({
     localStorage.setItem('searchValue', JSON.stringify(searchValue));
     localStorage.setItem('stateCheckbox', JSON.stringify(isShortSwitch));
     localStorage.setItem('movies', JSON.stringify(movies));
-    localStorage.setItem('foundMovies', JSON.stringify(foundMovies));
-  }, [setFoundMovies, foundMovies]);
+    // localStorage.setItem('foundMovies', JSON.stringify(foundMovies))
+  }, [setFoundMovies]);
 
   function handleSearchMovie(searchValue) {
     if (localStorage.getItem('movies')) {
