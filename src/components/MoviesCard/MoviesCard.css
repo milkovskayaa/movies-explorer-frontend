@@ -7,6 +7,10 @@
   box-shadow: #000 8%;
 }
 
+.card:hover .card__delete-movie {
+  opacity: 1;
+}
+
 .card__image {
   max-width: 364px;
   width: 100%;
@@ -52,10 +56,6 @@
 .card__delete-movie {
   background-image: url(../../images/delete-like.svg);
   opacity: 0;
-}
-
-.card__delete-movie:hover {
-  opacity: 1;
 }
 
 .card__button:hover {

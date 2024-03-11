@@ -41,16 +41,11 @@ function SavedMovies({
      }))
 
      setSearchSavedValue(searchValue);
- 
-     // записываем в LocalStorage текст запроса, состояние переключателя и найденные фильмы
-     localStorage.setItem('searchValueSaved', JSON.stringify(searchValue));
-     localStorage.setItem('stateCheckboxSaved', JSON.stringify(isShortSwitch));
-    //  localStorage.setItem('likedMovies', JSON.stringify(movies));
+
    }, [setLikedMovies]);
 
    const handleSearchSavedMovie = (searchSavedValue) => {
     findMovies(likedMovies, searchSavedValue, isShortSwitchSaved);
-    console.log(searchSavedValue)
    }
 
   return(
