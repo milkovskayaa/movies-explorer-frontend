@@ -4,12 +4,7 @@ import { useLocation } from "react-router-dom";
 
 function MoviesCard({movie, handleMovieLike, likedMovies, deleteMovie}) {
   const location = useLocation();
-  const [isLiked, setIsLiked] = React.useState(false);
-
-  // проверка лайка
-  React.useEffect(() => {
-    setIsLiked(likedMovies.some((e) => movie.id === e.movieId));
-  }, [movie, likedMovies])
+  const isLiked = likedMovies.some((e) => movie.id === e.movieId);
 
   // конвертация времени фильма
   function durationConvert(minutes) {

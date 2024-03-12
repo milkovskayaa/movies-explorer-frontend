@@ -78,7 +78,7 @@ function App() {
         .then(([userInfo, movies]) => {
           setCurrentUser(userInfo);
           setLikedMovies(movies);
-          localStorage.setItem('likedMovies', movies);
+          localStorage.setItem('likedMovies', JSON.stringify(movies));
         })
         .catch((err) => console.log(err));
     }
@@ -106,30 +106,29 @@ function App() {
   // сохранение карточки
  const handleMovieLike = (movieData) => {
     const isLiked = likedMovies.some((movie) => movieData.id === movie.movieId);
-    console.log(isLiked)
     if (!isLiked) {
       MainApi.postNewMovie(movieData, localStorage.getItem('token'))
         .then((newMovie) => {
           setLikedMovies([...likedMovies, newMovie])
+          console.log(likedMovies)
         })
         .catch((err) => console.log(err));
     }
     else {
       const likedMovie = likedMovies.find((movie) => movie.movieId === movieData.id)
-      console.log(likedMovie)
-      MainApi.deleteMovie(likedMovie._id, localStorage.getItem('token'))
-        .then(() => {
-          setLikedMovies((state) => state.filter((c) => c._id !== likedMovie._id))
-        })
-        .catch((err) => console.log(err));
+      deleteMovie(likedMovie)
     }
   }
 
+  console.log(likedMovies)
+
   // удаление карточки
   const deleteMovie = (movie) => {
+    console.log(movie)
     MainApi.deleteMovie(movie._id, localStorage.getItem('token'))
       .then(() => {
         setLikedMovies((state) => state.filter((c) => c._id !== movie._id))
+        console.log(likedMovies)
       })
       .catch((err) => console.log(err));
   }

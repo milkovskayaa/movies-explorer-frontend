@@ -19,6 +19,7 @@ function SavedMovies({
 
   const [searchSavedValue, setSearchSavedValue] = React.useState('');
   const [isShortSwitchSaved, setShortSwitchSaved] = React.useState(false);
+  const [savedSearchMovies, setSavedSearchMovies] = React.useState(likedMovies);
 
   React.useEffect(() => {
     if (searchSavedValue === undefined) {
@@ -28,8 +29,7 @@ function SavedMovies({
 
   // функция поиска фильмов
   const findMovies = useCallback((movies, searchValue, isShortSwitch) => {
-    console.log(searchValue)
-    setLikedMovies(movies.filter((movie) => {
+    setSavedSearchMovies(movies.filter((movie) => {
        const filtredMovie = movie.nameEN.toLowerCase().includes(searchValue.toLowerCase()) ||
                            movie.nameRU.toLowerCase().includes(searchValue.toLowerCase());
        if (isShortSwitch) {
@@ -42,11 +42,15 @@ function SavedMovies({
 
      setSearchSavedValue(searchValue);
 
-   }, [setLikedMovies]);
+   }, []);
 
    const handleSearchSavedMovie = (searchSavedValue) => {
     findMovies(likedMovies, searchSavedValue, isShortSwitchSaved);
    }
+
+   React.useEffect(() => {
+    findMovies(likedMovies, searchSavedValue, isShortSwitchSaved);
+  }, [findMovies, likedMovies, searchSavedValue, isShortSwitchSaved])
 
   return(
     <>
@@ -64,7 +68,7 @@ function SavedMovies({
           setSearchValue={setSearchSavedValue}
         />
         <MoviesCardList
-          foundMovies={likedMovies}
+          foundMovies={savedSearchMovies}
           likedMovies={likedMovies}
           deleteMovie={deleteMovie} />
         <Preloader isShowPreloader={isShowPreloader} />
