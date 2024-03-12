@@ -59,6 +59,7 @@ function App() {
     localStorage.removeItem('searchValueSaved');
     localStorage.removeItem('stateCheckbox');
     localStorage.removeItem('stateCheckboxSaved');
+    setFoundMovies([]);
   }
 
   // функция выхода из системы

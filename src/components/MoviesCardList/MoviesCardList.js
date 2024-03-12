@@ -18,7 +18,8 @@ function MoviesCardList({
   setFoundMovies,
   handleMovieLike,
   likedMovies,
-  deleteMovie 
+  deleteMovie,
+  isFirstSearch
 }) {
 
   const location = useLocation();
@@ -65,7 +66,10 @@ function MoviesCardList({
     if (foundMovies.length === 0) {
       setNotFoundText('Ничего не найдено');
     }
-  }, [foundMovies]);
+    if (location.pathname === '/movies' && isFirstSearch === true) {
+      setNotFoundText('')
+    }
+  }, [foundMovies, isFirstSearch, location]);
 
   const handleMoreButton = () => {
    setShowMovies(showMovies + loadMovies);

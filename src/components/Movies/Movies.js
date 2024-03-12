@@ -24,6 +24,7 @@ function Movies({
   const [movies, setMovies] = React.useState([]);
   const [searchValue, setSearchValue] = React.useState('');
   const [isShortSwitch, setShortSwitch] = React.useState(false);
+  const [isFirstSearch, setIsFirstSearch] = React.useState(true);
 
   // если поиск не первый, загружаем из LocalStorage данные поиска 
   React.useEffect(() => {
@@ -68,6 +69,7 @@ function Movies({
         .then((movies) => {
           findMovies(movies, searchValue, isShortSwitch)
           setMovies(movies);
+          setIsFirstSearch(false);
           setSearchError('');
         })
         .catch((err) => {
@@ -99,6 +101,7 @@ function Movies({
         handleMovieLike={handleMovieLike}
         likedMovies={likedMovies}
         deleteMovie={deleteMovie}
+        isFirstSearch={isFirstSearch}
       />
       <Footer />
     </section>
