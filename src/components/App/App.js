@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import { Route, Routes, useNavigate, Navigate } from 'react-router-dom';
 import './App.css';
 import Main from '../Main/Main';
 import PageNotFound from '../PageNotFound/PageNotFound';
@@ -144,11 +144,17 @@ function App() {
           />
           <Route
             path='/signup'
-            element={<Register handleLogin={handleLogin} />}
+            element={
+              loggedIn ? <Navigate to="/" replace /> :
+              <Register handleLogin={handleLogin} />
+          }
           />
           <Route
             path='/signin'
-            element={<Login handleLogin={handleLogin} />}
+            element={
+              loggedIn ? <Navigate to="/" replace /> :
+              <Login handleLogin={handleLogin} />
+          }
           />
           <Route 
             path='/movies'
