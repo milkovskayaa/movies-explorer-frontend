@@ -20,12 +20,13 @@ function SearchForm({
   const location = useLocation();
 
   const handleChangeCheckbox = () => {
-    setShortSwitch(!isShortSwitch);
-    if (isShortSwitch === true) {
-      findMovies(movies, values.movie || '', true)
+    if (isShortSwitch) {
+      setShortSwitch(false)
+      findMovies(movies, values.movie || '', false)
     }
     else {
-      findMovies(movies, values.movie || '', false)
+      setShortSwitch(true)
+      findMovies(movies, values.movie || '', true)
     }
   }
 

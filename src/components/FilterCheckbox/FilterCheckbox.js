@@ -4,7 +4,7 @@ import './FilterCheckbox.css';
 function FilterCheckbox({isShortSwitch, handleChangeCheckbox}) {
 
   const handleChange = () => {
-    handleChangeCheckbox();
+    handleChangeCheckbox(isShortSwitch);
   }
 
   return(
