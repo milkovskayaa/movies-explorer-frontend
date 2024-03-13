@@ -16,7 +16,7 @@ function SearchForm({
   setSearchValue
 }) {
 
-  const { values, handleChange } = useFormWithValidation();
+  const { values, handleChange, resetForm } = useFormWithValidation();
   const location = useLocation();
 
   const handleChangeCheckbox = () => {
@@ -42,17 +42,25 @@ function SearchForm({
   }
 
   React.useEffect(() => {
-    if (location === '/saved-movies') {
+    if (location.pathname === '/saved-movies') {
       setSearchValue('');
     }
   })
+
+  React.useEffect(() => {
+    if (location.pathname === '/movies') {
+      resetForm({movie: searchValue})
+    }
+  }, [resetForm, location, searchValue])
+
+  console.log(searchValue)
 
   return(
     <section className='search'>
       <form className='search__form' onSubmit={handleSubmit}>
         <input 
         onChange={handleChange}
-        defaultValue={searchValue}
+        value={values.movie || ''}
         type='text'
         className='search__form-input'
         placeholder='Фильм'

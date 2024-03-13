@@ -26,9 +26,6 @@ function Movies({
   const [isShortSwitch, setShortSwitch] = React.useState(false);
   const [isFirstSearch, setIsFirstSearch] = React.useState(true);
 
-  console.log(searchValue)
-  console.log(localStorage)
-
   // если поиск не первый, загружаем из LocalStorage данные поиска 
   React.useEffect(() => {
     if (localStorage.getItem('movies')) {
@@ -38,6 +35,8 @@ function Movies({
       setFoundMovies(JSON.parse(localStorage.foundMovies));
     }
   }, [setFoundMovies])
+
+  console.log(localStorage)
 
   // функция поиска фильмов
   const findMovies= useCallback((movies, searchValue, isShortSwitch) => {
@@ -52,7 +51,7 @@ function Movies({
       }
     }))
 
-    setSearchValue(searchValue)
+    setSearchValue(searchValue);
 
     // записываем в LocalStorage текст запроса, состояние переключателя и найденные фильмы
     localStorage.setItem('searchValue', JSON.stringify(searchValue));
