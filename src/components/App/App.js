@@ -48,8 +48,6 @@ function App() {
     }
   }
 
-  console.log(localStorage)
-
   const clearLocalStorage = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('foundMovies');
@@ -119,8 +117,6 @@ function App() {
       deleteMovie(likedMovie)
     }
   }
-
-  console.log(likedMovies)
 
   // удаление карточки
   const deleteMovie = (movie) => {
