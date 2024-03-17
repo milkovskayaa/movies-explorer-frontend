@@ -1,5 +1,6 @@
 .navigation {
   display: flex;
+  margin-left: auto;
 }
 
 .navigation_logged {

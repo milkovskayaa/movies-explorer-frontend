@@ -16,24 +16,32 @@ function Navigation({loggedIn}) {
   };
 
   return(
-    <section className={`navigation ${location.pathname === '/' ? '' : 'navigation_logged'}`}>
-      <ul className={`navigation__list ${location.pathname === '/' ? '' : 'navigation__list_logged'}`}>
-        {loggedIn ? (
-          <>
-            <Link to='/movies' className='link'>
-              <li className='navigation__link navigation__link_movies'>Фильмы</li>
-            </Link>
-            <Link to='/saved-movies' className='link'>
-              <li className='navigation__link navigation__link_movies'>Сохраненные фильмы</li>
-            </Link>
-          </>
+    <>
+      {loggedIn ? (
+        <>
+          <section className='navigation navigation_logged'>
+            <ul className='navigation__list navigation__list_logged'>
+              <Link to='/movies' className='link'>
+                <li className='navigation__link navigation__link_movies'>Фильмы</li>
+              </Link>
+              <Link to='/saved-movies' className='link'>
+                <li className='navigation__link navigation__link_movies'>Сохраненные фильмы</li>
+              </Link>
+            </ul>
+          </section>
+        </>
         ) : (
-          <Link to='/signup' className='link'>
-            <li className='navigation__link navigation__link_signup'>Регистрация</li>
-          </Link>
+        <>
+          <section className='navigation'>
+            <ul className='navigation__list'>
+              <Link to='/signup' className='link'>
+                <li className='navigation__link navigation__link_signup'>Регистрация</li>
+              </Link>
+            </ul>
+          </section>
+          </>
         ) 
         }
-      </ul>
       {loggedIn ? (
         <>
           <Link to='/profile' className='link'>
@@ -52,7 +60,7 @@ function Navigation({loggedIn}) {
           </button>
         </Link>
       )}      
-    </section>
+  </>
   )
 }
 
