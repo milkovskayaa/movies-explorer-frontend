@@ -19,6 +19,7 @@ https://github.com/milkovskayaa/movies-explorer-api
 
 ### Стек технологий:
 - JavaScript
+- REST API
 - React
 - HTML5
 - CSS3
